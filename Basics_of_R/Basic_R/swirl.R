@@ -5,7 +5,7 @@ install.packages("swirl")
 
 library(crimsyndata)
 library(swirlify)
-set_lesson("C:/Users/kukumar/OneDrive - UGent/Job/Data_Analysis_Bachelor_Criminology/Basics_of_R/lesson.yaml")
+set_lesson("C:/Users/kukumar/OneDrive - UGent/Job/Data_Analysis_Bachelor_Criminology/T_Test_and_Chi_Square/lesson2.yaml")
 test_lesson()
 
 demo_lesson()
