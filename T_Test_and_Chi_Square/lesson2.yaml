@@ -10,11 +10,11 @@
     Welcome to the **T Test and Chi Square** lesson!
     You’ll work with synthetic criminology datasets to practise t-tests and chi-square tests in R.
 - Class: cmd_question
-  Output: "**Q1** : Load the required packages `dplyr` and `crimsyndata`."
-  CorrectAnswer: library(dplyr) && library(crimsyndata)
-  AnswerTests: all(c("dplyr","crimsyndata") %in% (.packages()))
-  Hint: Use two separate `library()` calls.
-  Feedback: "✔️ Packages loaded! | ❌ Both packages must be attached."
+  Output: "**Q1** : Load the required packages `dplyr`, `crimsyndata`, and `flextable`."
+  CorrectAnswer: library(dplyr); library(crimsyndata); library(flextable)
+  AnswerTests: all(c("dplyr","crimsyndata","flextable") %in% (.packages()))
+  Hint: Use three separate `library()` calls.
+  Feedback: "✔️ Packages loaded! | ❌ All three packages must be attached."
 - Class: cmd_question
   Output: "**Q2** : Show the column names of `crime_stats_ghent`."
   CorrectAnswer: colnames(crime_stats_ghent)
@@ -47,23 +47,17 @@
   Hint: Wrap `table()` inside `chisq.test()`.
   Feedback: "✔️ Chi-square test complete! | ❌ Make sure you pass a *table* to `chisq.test()`."
 - Class: cmd_question
-  Output: "**Q7** : (Optional) Install and load **papaja** for APA tables if you haven’t already."
-  CorrectAnswer: if(!require(papaja)) install.packages("papaja"); library(papaja)
-  AnswerTests: "papaja" %in% (.packages())
-  Hint: Use an `if(!require())` guard before `install.packages()`.
-  Feedback: "✔️ Package ready. | ❌ Ensure papaja is installed *and* loaded."
+  Output: "**Q7** : Create a flextable summary for your t-test result. (Assign the t-test to `ttest_result` and use `flextable()` on a summary data frame.)"
+  CorrectAnswer: ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); summary_df <- data.frame(Statistic = "t", Value = ttest_result$statistic, df = ttest_result$parameter, p_value = ttest_result$p.value); flextable(summary_df)
+  AnswerTests: exists("ft") && inherits(ft, "flextable")
+  Hint: Assign the t-test to `ttest_result`, create a summary data frame, then use `flextable()`.
+  Feedback: "✔️ Table created! | ❌ Make sure you assign and use flextable on a summary data frame."
 - Class: cmd_question
-  Output: "**Q8** : Save the APA-style table for your t-test as `t_test_APA.docx`."
-  CorrectAnswer: ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); ttest_tab <- apa_print(ttest_result)$table; apa_table(ttest_tab, file = "t_test_APA.docx")
-  AnswerTests: file.exists("t_test_APA.docx")
-  Hint: Assign the t-test to an object, then pipe to `apa_print()` and finally `apa_table()`.
-  Feedback: "✔️ Word file created. | ❌ Make sure you saved the file with `.docx` extension."
-- Class: cmd_question
-  Output: "**Q9** : Save the APA-style table for your chi-square test as `chi_square_APA.docx`."
-  CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_tab <- apa_print(chisq_result)$table; apa_table(chisq_tab, file = "chi_square_APA.docx")
-  AnswerTests: file.exists("chi_square_APA.docx")
-  Hint: The sequence mirrors the previous step but uses your chi-square object.
-  Feedback: "✔️ Word file created. | ❌ Double-check the file name and object names."
+  Output: "**Q8** : Create a flextable summary for your chi-square test result. (Assign the chi-square test to `chisq_result` and use `flextable()` on a summary data frame.)"
+  CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); summary_df <- data.frame(Statistic = "Chi-squared", Value = chisq_result$statistic, df = chisq_result$parameter, p_value = chisq_result$p.value); flextable(summary_df)
+  AnswerTests: exists("ft") && inherits(ft, "flextable")
+  Hint: Assign the chi-square test to `chisq_result`, create a summary data frame, then use `flextable()`.
+  Feedback: "✔️ Table created! | ❌ Make sure you assign and use flextable on a summary data frame."
 - Class: text
   Output: |
     🎉 You’ve completed the T-test & Chi-square lesson—well done!
