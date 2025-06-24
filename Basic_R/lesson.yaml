@@ -12,50 +12,62 @@
   AnswerTests: omnitest(correctExpr = "library(crimsyndata)")
   Hint: Use `library(crimsyndata)` to load the package and access its datasets.
   Feedback: |
-    ✔️ Correct! When you run `library(crimsyndata)`, you will see no output if the package loads successfully.
-    ❌ Use `library(crimsyndata)` to load the package.
+    ✔️ Excellent! The package is now loaded and you can access the datasets.
+    ❌ Remember to use: library(crimsyndata)
 
 - Class: cmd_question
   Output: "**Q2** : What are the column names of `df_crime_stats_ghent`?"
   CorrectAnswer: colnames(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(df_crime_stats_ghent)")
   Hint: Use `colnames()` on the data frame you just loaded.
-  Feedback: "✔️ Correct! ❌ Use `colnames(df_crime_stats_ghent)`."
+  Feedback: |
+    ✔️ Correct! You have listed all the column names. Great job!
+    ❌ Try using colnames(df_crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
   Output: "**Q3** : What is the structure of `df_crime_stats_ghent`?"
   CorrectAnswer: str(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "str(df_crime_stats_ghent)")
   Hint: Use `str()` to see structure.
-  Feedback: "✔️ Good! ❌ Use `str(df_crime_stats_ghent)`."
+  Feedback: |
+    ✔️ Well done! You have displayed the structure of the data frame.
+    ❌ Use str(df_crime_stats_ghent) to see the structure of the data frame.
 
 - Class: cmd_question
   Output: "**Q4** : How many rows are in `df_crime_stats_ghent`? (Use a function, not a hard-coded number.)"
   CorrectAnswer: nrow(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "nrow(df_crime_stats_ghent)")
   Hint: Try `nrow()` on the data frame.
-  Feedback: "✔️ Good! ❌ Use `nrow(df_crime_stats_ghent)`."
+  Feedback: |
+    ✔️ Good! You have found the number of rows in the data frame.
+    ❌ Use nrow(df_crime_stats_ghent) to get the number of rows.
 
 - Class: cmd_question
   Output: "**Q5** : What are the dimensions of `df_crime_stats_ghent`?"
   CorrectAnswer: dim(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "dim(df_crime_stats_ghent)")
   Hint: Use `dim()` to get both rows and columns.
-  Feedback: "✔️ Correct! ❌ Use `dim(df_crime_stats_ghent)`."
+  Feedback: |
+    ✔️ Excellent! You have displayed both the number of rows and columns.
+    ❌ Use dim(df_crime_stats_ghent) to get the dimensions.
 
 - Class: cmd_question
   Output: "**Q6** : What are the column names of `crime_stats_ghent`?"
   CorrectAnswer: colnames(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
   Hint: Use `colnames()` on the dataset.
-  Feedback: "✔️ Correct! ❌ Use `colnames(crime_stats_ghent)`."
+  Feedback: |
+    ✔️ Correct! You have listed the column names for crime_stats_ghent.
+    ❌ Use colnames(crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
   Output: "**Q7** : How many rows are in `neighborhood_index`? (Use a function, not a hard-coded number.)"
   CorrectAnswer: nrow(neighborhood_index)
   AnswerTests: omnitest(correctExpr = "nrow(neighborhood_index)")
   Hint: Try `nrow()` on the data frame.
-  Feedback: "✔️ Good! ❌ Use `nrow(neighborhood_index)`."
+  Feedback: |
+    ✔️ Good! You have found the number of rows in neighborhood_index.
+    ❌ Use nrow(neighborhood_index) to get the number of rows.
 
 - Class: mult_question
   Output: "**Q8** : The variable `clearance_rate` in `police_effort_index` is measured on which scale?"
@@ -63,7 +75,9 @@
   CorrectAnswer: Ratio
   AnswerTests: omnitest(correctVal = "Ratio")
   Hint: Can you subtract and say one value is twice another?
-  Feedback: "✔️ Correct! ❌ `clearance_rate` is a numeric ratio variable."
+  Feedback: |
+    ✔️ Correct! `clearance_rate` is a ratio variable because it has a true zero and meaningful ratios.
+    ❌ Remember, ratio variables have a true zero and allow for meaningful comparisons.
 
 - Class: cmd_question
   Output: "**Q9** : Extract the `district` column from `crime_stats_ghent`."
