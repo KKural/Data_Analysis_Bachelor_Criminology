@@ -105,7 +105,3 @@
   Feedback: |
     ✔️ Correct. The function is `chisq.test()`.
     ❌ Recall that chi-square starts with *chisq*.
-
-- Class: text
-  Output: |
-    🎉 You’ve completed the T-Test & Chi-Square lesson—well done!
