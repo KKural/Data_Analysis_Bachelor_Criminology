@@ -14,35 +14,45 @@
   CorrectAnswer: library(crimsyndata)
   AnswerTests: omnitest(correctExpr = "library(crimsyndata)")
   Hint: Use `library(crimsyndata)` to load the package and access its datasets.
-  Feedback: "✔️ Excellent! The package is now loaded and you can access the datasets. ❌ Remember to use: library(crimsyndata)"
+  Feedback: |
+    ✔️ Excellent! The package is now loaded and you can access the datasets.
+    ❌ Remember to use: library(crimsyndata)
 
 - Class: cmd_question
   Output: "**Q2** : What are the column names of `crime_stats_ghent`?"
   CorrectAnswer: colnames(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
   Hint: Use `colnames()` on the data frame you just loaded.
-  Feedback: "✔️ Correct! You have listed all the column names. Great job! ❌ Try using colnames(crime_stats_ghent) to see the column names."
+  Feedback: |
+    ✔️ Correct! You have listed all the column names. Great job!
+    ❌ Try using colnames(crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
   Output: "**Q3** : What is the structure of `crime_stats_ghent`?"
   CorrectAnswer: str(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
   Hint: Use `str()` to see structure.
-  Feedback: "✔️ Well done! You have displayed the structure of the data frame. ❌ Use str(crime_stats_ghent) to see the structure of the data frame."
+  Feedback: |
+    ✔️ Well done! You have displayed the structure of the data frame.
+    ❌ Use str(crime_stats_ghent) to see the structure of the data frame.
 
 - Class: cmd_question
   Output: "**Q4** : How many rows are in `crime_stats_ghent`? (Use a function, not a hard-coded number.)"
   CorrectAnswer: nrow(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "nrow(crime_stats_ghent)")
   Hint: Try `nrow()` on the data frame.
-  Feedback: "✔️ Good! You have found the number of rows in the data frame. ❌ Use nrow(crime_stats_ghent) to get the number of rows."
+  Feedback: |
+    ✔️ Good! You have found the number of rows in the data frame.
+    ❌ Use nrow(crime_stats_ghent) to get the number of rows.
 
 - Class: cmd_question
   Output: "**Q5** : What are the dimensions of `crime_stats_ghent`?"
   CorrectAnswer: dim(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "dim(crime_stats_ghent)")
   Hint: Use `dim()` to get both rows and columns.
-  Feedback: "✔️ Excellent! You have displayed both the number of rows and columns. ❌ Use dim(crime_stats_ghent) to get the dimensions."
+  Feedback: |
+    ✔️ Excellent! You have displayed both the number of rows and columns.
+    ❌ Use dim(crime_stats_ghent) to get the dimensions.
 
 - Class: cmd_question
   Output: "**Q6** : Perform a t-test comparing `fear_score` by `neighborhood` in `fear_of_crime_survey`."
