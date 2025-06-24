@@ -2,135 +2,68 @@
   Course: Data Analysis Bachelor Criminology
   Lesson: T Test and Chi Square
   Author: Kural K.
-  Type: Standard
   Organization: UGent
+  Type: Standard
   Version: 1.0
-
-# Chapter 1: T Test and Chi Square Basics
 - Class: text
   Output: |
-    Welcome to the T Test and Chi Square lesson!
-    In this lesson, you will use the synthetic criminology datasets to perform t-tests and chi-square tests in R.
-
+    Welcome to the **T Test and Chi Square** lesson!
+    You’ll work with synthetic criminology datasets to practise t-tests and chi-square tests in R.
 - Class: cmd_question
-  Output: "**Q1** : Load the required packages for this lesson: dplyr and crimsyndata."
-  CorrectAnswer: library(dplyr); library(crimsyndata)
-  AnswerTests: omnitest(correctExpr = "library(dplyr); library(crimsyndata)")
-  Hint: Use library(dplyr) and library(crimsyndata).
-  Feedback: |
-    ✔️ Excellent! Both packages are now loaded and ready to use.
-    ❌ Remember to use: library(dplyr); library(crimsyndata)
-
+  Output: "**Q1** : Load the required packages `dplyr` and `crimsyndata`."
+  CorrectAnswer: library(dplyr) && library(crimsyndata)
+  AnswerTests: all(c("dplyr","crimsyndata") %in% (.packages()))
+  Hint: Use two separate `library()` calls.
+  Feedback: "✔️ Packages loaded! | ❌ Both packages must be attached."
 - Class: cmd_question
-  Output: "**Q2** : What are the column names of `crime_stats_ghent`?"
+  Output: "**Q2** : Show the column names of `crime_stats_ghent`."
   CorrectAnswer: colnames(crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
-  Hint: Use colnames() on the data frame.
-  Feedback: |
-    ✔️ Correct! You have listed all the column names. Great job!
-    ❌ Try using colnames(crime_stats_ghent) to see the column names.
-
+  AnswerTests: identical(last_value, colnames(crime_stats_ghent))
+  Hint: The function starts with **cola…** .
+  Feedback: "✔️ Nice! | ❌ Use the function that lists column names."
 - Class: cmd_question
-  Output: "**Q3** : What is the structure of `crime_stats_ghent`?"
+  Output: "**Q3** : Display the structure of `crime_stats_ghent`."
   CorrectAnswer: str(crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
-  Hint: Use str() to see structure.
-  Feedback: |
-    ✔️ Well done! You have displayed the structure of the data frame.
-    ❌ Use str(crime_stats_ghent) to see the structure of the data frame.
-
+  AnswerTests: TRUE  # str() prints; test just accepts the call
+  Hint: Use `str()` on the data frame.
+  Feedback: "✔️ Structure shown. | ❌ Run `str(crime_stats_ghent)` and press Enter."
 - Class: cmd_question
-  Output: "**Q4** : Let's compare the mean `fear_score` between two neighborhoods using a t-test. Run the following code:"
+  Output: "**Q4** : Perform a t-test comparing `fear_score` by `neighborhood` in `fear_of_crime_survey`."
   CorrectAnswer: t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)
-  AnswerTests: omnitest(correctExpr = "t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)")
-  Hint: Use t.test() with the formula interface.
-  Feedback: |
-    ✔️ Good! You have performed the t-test correctly.
-    ❌ Use t.test(fear_score ~ neighborhood, data = fear_of_crime_survey).
-
+  AnswerTests: exists("last_value") && inherits(last_value, "htest") && grepl("t", last_value$method, ignore.case = TRUE)
+  Hint: Use the formula interface inside `t.test()`.
+  Feedback: "✔️ t-test done! | ❌ Check the argument order and data frame."
 - Class: mult_question
-  Output: "**Q5** : Which function is used to perform a chi-square test in R?"
+  Output: "**Q5** : Which R function carries out a **chi-square** test?"
   AnswerChoices: chisq.test(); t.test(); cor(); mean()
   CorrectAnswer: chisq.test()
   AnswerTests: omnitest(correctVal = "chisq.test()")
-  Hint: It starts with 'chisq'.
-  Feedback: |
-    ✔️ Correct! The function is chisq.test().
-    ❌ The correct answer is chisq.test().
-
+  Hint: It starts with *chisq*.
+  Feedback: "✔️ Correct. | ❌ Recall that chi-square starts with *chisq*."
 - Class: cmd_question
-  Output: "**Q6** : Create a table of `district` and `crime_type` from the `crime_stats_ghent` dataset, then perform a chi-square test."
+  Output: "**Q6** : Create a contingency table of `district` × `crime_type` in `crime_stats_ghent` and perform a chi-square test."
   CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
-  AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
-  Hint: Use table() inside chisq.test().
-  Feedback: |
-    ✔️ Well done! You have performed the chi-square test.
-    ❌ Use chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)).
-
-# Chapter 2: APA Reporting
+  AnswerTests: exists("last_value") && inherits(last_value, "htest") && grepl("Chi", last_value$method)
+  Hint: Wrap `table()` inside `chisq.test()`.
+  Feedback: "✔️ Chi-square test complete! | ❌ Make sure you pass a *table* to `chisq.test()`."
 - Class: cmd_question
-  Output: "**Q7** : Install and load the papaja package (if not already installed) for APA style tables. Type:"
+  Output: "**Q7** : (Optional) Install and load **papaja** for APA tables if you haven’t already."
   CorrectAnswer: if(!require(papaja)) install.packages("papaja"); library(papaja)
-  AnswerTests: omnitest(correctExpr = "if(!require(papaja)) install.packages('papaja'); library(papaja)")
-  Hint: Use install.packages and library for papaja.
-  Feedback: |
-    ✔️ Correct! papaja is now loaded for APA style tables.
-    ❌ Use if(!require(papaja)) install.packages('papaja'); library(papaja).
-
+  AnswerTests: "papaja" %in% (.packages())
+  Hint: Use an `if(!require())` guard before `install.packages()`.
+  Feedback: "✔️ Package ready. | ❌ Ensure papaja is installed *and* loaded."
 - Class: cmd_question
-  Output: "**Q8** : Create an APA style table for the t-test result using apa_print(). (First, assign your t-test result to an object called ttest_result.)"
-  CorrectAnswer: ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); apa_print(ttest_result)
-  AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); apa_print(ttest_result)")
-  Hint: Assign the t-test to ttest_result, then use apa_print().
-  Feedback: |
-    ✔️ Good! You have created an APA style table for the t-test.
-    ❌ Use ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); apa_print(ttest_result).
-
+  Output: "**Q8** : Save the APA-style table for your t-test as `t_test_APA.docx`."
+  CorrectAnswer: ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); ttest_tab <- apa_print(ttest_result)$table; apa_table(ttest_tab, file = "t_test_APA.docx")
+  AnswerTests: file.exists("t_test_APA.docx")
+  Hint: Assign the t-test to an object, then pipe to `apa_print()` and finally `apa_table()`.
+  Feedback: "✔️ Word file created. | ❌ Make sure you saved the file with `.docx` extension."
 - Class: cmd_question
-  Output: "**Q9** : Create an APA style table for the chi-square test result using apa_print(). (First, assign your chi-square result to an object called chisq_result.)"
-  CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); apa_print(chisq_result)
-  AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); apa_print(chisq_result)")
-  Hint: Assign the chi-square test to chisq_result, then use apa_print().
-  Feedback: |
-    ✔️ Well done! You have created an APA style table for the chi-square test.
-    ❌ Use chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); apa_print(chisq_result).
-
-- Class: cmd_question
-  Output: "**Q10** : Save the APA style t-test table to a Word document using apa_table(). (First, extract the table from apa_print(ttest_result)$table and assign it to ttest_table.)"
-  CorrectAnswer: ttest_table <- apa_print(ttest_result)$table; apa_table(ttest_table, file = "t_test_APA.docx")
-  AnswerTests: omnitest(correctExpr = "ttest_table <- apa_print(ttest_result)$table; apa_table(ttest_table, file = 't_test_APA.docx')")
-  Hint: Use apa_print(ttest_result)$table and apa_table().
-  Feedback: |
-    ✔️ Good! You have saved the t-test APA table to a Word document.
-    ❌ Use ttest_table <- apa_print(ttest_result)$table; apa_table(ttest_table, file = 't_test_APA.docx').
-
-- Class: cmd_question
-  Output: "**Q11** : Save the APA style chi-square table to a Word document using apa_table(). (First, extract the table from apa_print(chisq_result)$table and assign it to chisq_table.)"
-  CorrectAnswer: chisq_table <- apa_print(chisq_result)$table; apa_table(chisq_table, file = "chi_square_APA.docx")
-  AnswerTests: omnitest(correctExpr = "chisq_table <- apa_print(chisq_result)$table; apa_table(chisq_table, file = 'chi_square_APA.docx')")
-  Hint: Use apa_print(chisq_result)$table and apa_table().
-  Feedback: |
-    ✔️ Well done! You have saved the chi-square APA table to a Word document.
-    ❌ Use chisq_table <- apa_print(chisq_result)$table; apa_table(chisq_table, file = 'chi_square_APA.docx').
-
-- Class: cmd_question
-  Output: "**Q12** : Use apa_print() to get a full APA style report (including text and table) for your t-test result."
-  CorrectAnswer: apa_print(ttest_result)
-  AnswerTests: omnitest(correctExpr = "apa_print(ttest_result)")
-  Hint: Use apa_print() on your t-test result.
-  Feedback: |
-    ✔️ Good! You have generated a full APA style report for the t-test.
-    ❌ Use apa_print(ttest_result).
-
-- Class: cmd_question
-  Output: "**Q13** : Use apa_print() to get a full APA style report (including text and table) for your chi-square result."
-  CorrectAnswer: apa_print(chisq_result)
-  AnswerTests: omnitest(correctExpr = "apa_print(chisq_result)")
-  Hint: Use apa_print() on your chi-square result.
-  Feedback: |
-    ✔️ Well done! You have generated a full APA style report for the chi-square test.
-    ❌ Use apa_print(chisq_result).
-
+  Output: "**Q9** : Save the APA-style table for your chi-square test as `chi_square_APA.docx`."
+  CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_tab <- apa_print(chisq_result)$table; apa_table(chisq_tab, file = "chi_square_APA.docx")
+  AnswerTests: file.exists("chi_square_APA.docx")
+  Hint: The sequence mirrors the previous step but uses your chi-square object.
+  Feedback: "✔️ Word file created. | ❌ Double-check the file name and object names."
 - Class: text
   Output: |
-    You have completed advanced APA reporting for t-tests and chi-square tests. Well done!
+    🎉 You’ve completed the T-test & Chi-square lesson—well done!
