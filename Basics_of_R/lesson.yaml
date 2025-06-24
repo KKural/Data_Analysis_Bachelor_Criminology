@@ -7,15 +7,6 @@
   Version: 2.5
 
 - Class: cmd_question
-  Output: "**Q1** : Load the R package `crimsyndata` using the library function. This package contains several datasets that you will use in the following exercises."
-  CorrectAnswer: library(crimsyndata)
-  AnswerTests: omnitest(correctExpr = "library(crimsyndata)")
-  Hint: Use `library(crimsyndata)` to load the package and access its datasets.
-  Feedback: |
-    ✔️ Excellent! The package is now loaded and you can access the datasets.
-    ❌ Remember to use: library(crimsyndata)
-
-- Class: cmd_question
   Output: "**Q2** : What are the column names of `df_crime_stats_ghent`?"
   CorrectAnswer: colnames(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(df_crime_stats_ghent)")
