@@ -2,8 +2,6 @@
 library(dplyr)
 if (!require(crimsyndata)) remotes::install_github("KKural/crimsyndata")
 library(crimsyndata)
-if (!require(flextable)) install.packages("flextable")
-library(flextable)
 
 # Load datasets from the package into the lesson environment
 data("crime_stats_ghent")
