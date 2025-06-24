@@ -1,1 +1,114 @@
 # ...existing code...
+- Class: meta
+  Course: Data Analysis Bachelor Criminology
+  Lesson: T Test and Chi Square
+  Author: Kural K.
+  Type: Standard
+  Organization: UGent
+  Version: 1.0
+
+- Class: text
+  Output: |
+    Welcome to the T Test and Chi Square lesson!
+    In this lesson, you will use the synthetic criminology datasets to perform t-tests and chi-square tests in R.
+
+- Class: cmd_question
+  Output: |
+    Load the required packages for this lesson: dplyr and crimsyndata.
+  CorrectAnswer: library(dplyr); library(crimsyndata)
+  AnswerTests: omnitest(correctExpr = "library(dplyr); library(crimsyndata)")
+  Hint: Use library(dplyr) and library(crimsyndata).
+  Feedback: "✔️ Correct! ❌ Use library(dplyr); library(crimsyndata)."
+
+- Class: cmd_question
+  Output: |
+    Let's compare the mean `fear_score` between two neighborhoods using a t-test. Run the following code:
+  CorrectAnswer: t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)
+  AnswerTests: omnitest(correctExpr = "t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)")
+  Hint: Use t.test() with the formula interface.
+  Feedback: "✔️ Good! ❌ Use t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)."
+
+- Class: mult_question
+  Output: |
+    Which function is used to perform a chi-square test in R?
+  AnswerChoices: chisq.test(); t.test(); cor(); mean()
+  CorrectAnswer: chisq.test()
+  AnswerTests: omnitest(correctVal = "chisq.test()")
+  Hint: It starts with 'chisq'.
+  Feedback: "✔️ Correct! ❌ The answer is chisq.test()."
+
+- Class: cmd_question
+  Output: |
+    Create a table of `district` and `crime_type` from the `crime_stats_ghent` dataset, then perform a chi-square test.
+  CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
+  AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
+  Hint: Use table() inside chisq.test().
+  Feedback: "✔️ Well done! ❌ Use chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))."
+
+- Class: cmd_question
+  Output: |
+    Install and load the papaja package (if not already installed) for APA style tables. Type:
+  CorrectAnswer: if(!require(papaja)) install.packages("papaja"); library(papaja)
+  AnswerTests: omnitest(correctExpr = "if(!require(papaja)) install.packages('papaja'); library(papaja)")
+  Hint: Use install.packages and library for papaja.
+  Feedback: "✔️ Correct! ❌ Use if(!require(papaja)) install.packages('papaja'); library(papaja)."
+
+- Class: cmd_question
+  Output: |
+    Create an APA style table for the t-test result using apa_print().
+    (First, assign your t-test result to an object called ttest_result.)
+  CorrectAnswer: ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); apa_print(ttest_result)
+  AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); apa_print(ttest_result)")
+  Hint: Assign the t-test to ttest_result, then use apa_print().
+  Feedback: "✔️ Good! ❌ Use ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); apa_print(ttest_result)."
+
+- Class: cmd_question
+  Output: |
+    Create an APA style table for the chi-square test result using apa_print().
+    (First, assign your chi-square result to an object called chisq_result.)
+  CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); apa_print(chisq_result)
+  AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); apa_print(chisq_result)")
+  Hint: Assign the chi-square test to chisq_result, then use apa_print().
+  Feedback: "✔️ Well done! ❌ Use chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); apa_print(chisq_result)."
+
+- Class: cmd_question
+  Output: |
+    Save the APA style t-test table to a Word document using apa_table().
+    (First, extract the table from apa_print(ttest_result)$table and assign it to ttest_table.)
+  CorrectAnswer: ttest_table <- apa_print(ttest_result)$table; apa_table(ttest_table, file = "t_test_APA.docx")
+  AnswerTests: omnitest(correctExpr = "ttest_table <- apa_print(ttest_result)$table; apa_table(ttest_table, file = 't_test_APA.docx')")
+  Hint: Use apa_print(ttest_result)$table and apa_table().
+  Feedback: "✔️ Good! ❌ Use ttest_table <- apa_print(ttest_result)$table; apa_table(ttest_table, file = 't_test_APA.docx')."
+
+- Class: cmd_question
+  Output: |
+    Save the APA style chi-square table to a Word document using apa_table().
+    (First, extract the table from apa_print(chisq_result)$table and assign it to chisq_table.)
+  CorrectAnswer: chisq_table <- apa_print(chisq_result)$table; apa_table(chisq_table, file = "chi_square_APA.docx")
+  AnswerTests: omnitest(correctExpr = "chisq_table <- apa_print(chisq_result)$table; apa_table(chisq_table, file = 'chi_square_APA.docx')")
+  Hint: Use apa_print(chisq_result)$table and apa_table().
+  Feedback: "✔️ Well done! ❌ Use chisq_table <- apa_print(chisq_result)$table; apa_table(chisq_table, file = 'chi_square_APA.docx')."
+
+- Class: text
+  Output: |
+    You have now learned to save APA style tables to Word documents for reporting.
+
+- Class: cmd_question
+  Output: |
+    Use apa_print() to get a full APA style report (including text and table) for your t-test result.
+  CorrectAnswer: apa_print(ttest_result)
+  AnswerTests: omnitest(correctExpr = "apa_print(ttest_result)")
+  Hint: Use apa_print() on your t-test result.
+  Feedback: "✔️ Good! ❌ Use apa_print(ttest_result)."
+
+- Class: cmd_question
+  Output: |
+    Use apa_print() to get a full APA style report (including text and table) for your chi-square result.
+  CorrectAnswer: apa_print(chisq_result)
+  AnswerTests: omnitest(correctExpr = "apa_print(chisq_result)")
+  Hint: Use apa_print() on your chi-square result.
+  Feedback: "✔️ Well done! ❌ Use apa_print(chisq_result)."
+
+- Class: text
+  Output: |
+    You have completed advanced APA reporting for t-tests and chi-square tests. Well done!
