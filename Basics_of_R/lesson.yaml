@@ -1,0 +1,153 @@
+- Class: meta
+  Course: Data Analysis - Bachelor criminolgy
+  Lesson: Basics_of_R
+  Author: Kural K.
+  Type: Standard
+  Organization: UGent
+  Version: 2.5
+
+- Class: cmd_question
+  Output: "**Q1** : Load the R package `crimsyndata` using the library function. This package contains several datasets that you will use in the following exercises."
+  CorrectAnswer: library(crimsyndata)
+  AnswerTests: omnitest(correctExpr = "library(crimsyndata)")
+  Hint: Use `library(crimsyndata)` to load the package and access its datasets.
+  Feedback: |
+    ✔️ Correct! When you run `library(crimsyndata)`, you will see no output if the package loads successfully.
+    ❌ Use `library(crimsyndata)` to load the package.
+
+- Class: cmd_question
+  Output: "**Q2** : What are the column names of `df_crime_stats_ghent`?"
+  CorrectAnswer: colnames(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "colnames(df_crime_stats_ghent)")
+  Hint: Use `colnames()` on the data frame you just loaded.
+  Feedback: "✔️ Correct! ❌ Use `colnames(df_crime_stats_ghent)`."
+
+- Class: cmd_question
+  Output: "**Q3** : What is the structure of `df_crime_stats_ghent`?"
+  CorrectAnswer: str(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "str(df_crime_stats_ghent)")
+  Hint: Use `str()` to see structure.
+  Feedback: "✔️ Good! ❌ Use `str(df_crime_stats_ghent)`."
+
+- Class: cmd_question
+  Output: "**Q4** : How many rows are in `df_crime_stats_ghent`? (Use a function, not a hard-coded number.)"
+  CorrectAnswer: nrow(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "nrow(df_crime_stats_ghent)")
+  Hint: Try `nrow()` on the data frame.
+  Feedback: "✔️ Good! ❌ Use `nrow(df_crime_stats_ghent)`."
+
+- Class: cmd_question
+  Output: "**Q5** : What are the dimensions of `df_crime_stats_ghent`?"
+  CorrectAnswer: dim(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "dim(df_crime_stats_ghent)")
+  Hint: Use `dim()` to get both rows and columns.
+  Feedback: "✔️ Correct! ❌ Use `dim(df_crime_stats_ghent)`."
+
+- Class: cmd_question
+  Output: "**Q6** : What are the column names of `crime_stats_ghent`?"
+  CorrectAnswer: colnames(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
+  Hint: Use `colnames()` on the dataset.
+  Feedback: "✔️ Correct! ❌ Use `colnames(crime_stats_ghent)`."
+
+- Class: cmd_question
+  Output: "**Q7** : How many rows are in `neighborhood_index`? (Use a function, not a hard-coded number.)"
+  CorrectAnswer: nrow(neighborhood_index)
+  AnswerTests: omnitest(correctExpr = "nrow(neighborhood_index)")
+  Hint: Try `nrow()` on the data frame.
+  Feedback: "✔️ Good! ❌ Use `nrow(neighborhood_index)`."
+
+- Class: mult_question
+  Output: "**Q8** : The variable `clearance_rate` in `police_effort_index` is measured on which scale?"
+  AnswerChoices: Nominal;Ordinal;Ratio
+  CorrectAnswer: Ratio
+  AnswerTests: omnitest(correctVal = "Ratio")
+  Hint: Can you subtract and say one value is twice another?
+  Feedback: "✔️ Correct! ❌ `clearance_rate` is a numeric ratio variable."
+
+- Class: cmd_question
+  Output: "**Q9** : Extract the `district` column from `crime_stats_ghent`."
+  CorrectAnswer: crime_stats_ghent$district
+  AnswerTests: omnitest(correctExpr = "crime_stats_ghent$district")
+  Hint: Use `$` to extract a column.
+  Feedback: "✔️ Well done! ❌ Use `crime_stats_ghent$district`."
+
+- Class: cmd_question
+  Output: "**Q10** : Create `low_safety` as all rows in `fear_of_crime_survey` where `feel_safe_night < 3`."
+  CorrectAnswer: low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3)
+  AnswerTests: omnitest(correctExpr = "low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3)")
+  Hint: Use `%>% filter(feel_safe_night < 3)` and assign to `low_safety`.
+  Feedback: "✔️ Nice! ❌ Did you filter and assign correctly?"
+
+- Class: mult_question
+  Output: "**Q11** : The variable `poverty_rate` in `neighborhood_index` is measured on which scale?"
+  AnswerChoices: Nominal;Ordinal;Ratio
+  CorrectAnswer: Ratio
+  AnswerTests: omnitest(correctVal = "Ratio")
+  Hint: Is there a true zero and meaningful ratios?
+  Feedback: "✔️ Correct! ❌ `poverty_rate` is a ratio variable."
+
+- Class: cmd_question
+  Output: "**Q12** : What is the mean of `violent_crimes` in `crime_stats_ghent`?"
+  CorrectAnswer: mean(crime_stats_ghent$violent_crimes)
+  AnswerTests: omnitest(correctExpr = "mean(crime_stats_ghent$violent_crimes)")
+  Hint: Use `mean()` on the column.
+  Feedback: "✔️ Correct! ❌ Use `mean(crime_stats_ghent$violent_crimes)`."
+
+- Class: cmd_question
+  Output: "**Q13** : Show the first 6 rows of `crime_journal_notes`."
+  CorrectAnswer: head(crime_journal_notes)
+  AnswerTests: omnitest(correctExpr = "head(crime_journal_notes)")
+  Hint: Use `head()` on the dataset.
+  Feedback: "✔️ Good! ❌ Use `head(crime_journal_notes)`."
+
+- Class: cmd_question
+  Output: "**Q14** : What is your current working directory?"
+  CorrectAnswer: getwd()
+  AnswerTests: omnitest(correctExpr = "getwd()")
+  Hint: Use `getwd()` to check your working directory.
+  Feedback: "✔️ That's it! ❌ Use `getwd()`."
+
+# Chapter 2: R Basics
+- Class: cmd_question
+  Output: "**Q15** : What is 5 + 7?"
+  CorrectAnswer: 12
+  AnswerTests: omnitest(correctVal = 12)
+  Hint: Type the result of 5 + 7.
+  Feedback: "✔️ Correct! ❌ Try again."
+
+- Class: cmd_question
+  Output: "**Q16** : Assign the value 20 to a variable called `y`."
+  CorrectAnswer: y <- 20
+  AnswerTests: omnitest(correctExpr = "y <- 20")
+  Hint: Use `<-` to assign values in R.
+  Feedback: "✔️ Good! ❌ Use `y <- 20`."
+
+- Class: cmd_question
+  Output: "**Q17** : Create a vector `nums` with the numbers 4, 5, 6."
+  CorrectAnswer: nums <- c(4, 5, 6)
+  AnswerTests: omnitest(correctExpr = "nums <- c(4, 5, 6)")
+  Hint: Use `c()` to combine numbers into a vector.
+  Feedback: "✔️ Well done! ❌ Use `nums <- c(4, 5, 6)`."
+
+# Chapter 3: R Data Types
+- Class: cmd_question
+  Output: "**Q18** : What is the class of the value 2.71?"
+  CorrectAnswer: class(2.71)
+  AnswerTests: omnitest(correctExpr = "class(2.71)")
+  Hint: Use `class()` to check the type.
+  Feedback: "✔️ Correct! ❌ Use `class(2.71)`."
+
+- Class: cmd_question
+  Output: "**Q19** : What is the class of the value 'swirl'?"
+  CorrectAnswer: class('swirl')
+  AnswerTests: omnitest(correctExpr = "class('swirl')")
+  Hint: Use `class()` on a string.
+  Feedback: "✔️ Good! ❌ Use `class('swirl')`."
+
+- Class: cmd_question
+  Output: "**Q20** : What is the class of the value FALSE?"
+  CorrectAnswer: class(FALSE)
+  AnswerTests: omnitest(correctExpr = "class(FALSE)")
+  Hint: Use `class()` on a logical value.
+  Feedback: "✔️ Well done! ❌ Use `class(FALSE)`."
