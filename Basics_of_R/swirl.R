@@ -19,3 +19,6 @@ install.packages("remotes") # if not already installed
 install_course_github("KKural", "crime-analysis-swirl")
 library(swirl)
 swirl()
+
+
+Kural   
