@@ -1,6 +1,5 @@
 # Load the synthetic criminology dataset package
 library(dplyr)
-remotes::install_github("KKural/crimsyndata")
 library(crimsyndata)
 
 # Load datasets from the package into the lesson environment
