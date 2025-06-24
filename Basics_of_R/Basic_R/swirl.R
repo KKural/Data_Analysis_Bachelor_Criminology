@@ -25,3 +25,4 @@ library(swirl)
 swirl::install_course_github("KKural", "Data_Analysis_Bachelor_Criminology")
 swirl()
 
+kural
