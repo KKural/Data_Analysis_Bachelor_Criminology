@@ -9,5 +9,3 @@ data("neighborhood_index")
 data("fear_of_crime_survey")
 data("police_effort_index")
 data("crime_journal_notes")
-
-df_crime_stats_ghent <- crime_stats_ghent
