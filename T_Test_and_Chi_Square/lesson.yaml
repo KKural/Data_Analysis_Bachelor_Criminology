@@ -55,9 +55,9 @@
     ❌ Use dim(crime_stats_ghent) to get the dimensions.
 
 - Class: cmd_question
-  Output: "**Q6** : Perform a t-test comparing `fear_score` by `neighborhood` in `fear_of_crime_survey`."
-  CorrectAnswer: t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)
-  AnswerTests: omnitest(correctExpr = "t.test(fear_score ~ neighborhood, data = fear_of_crime_survey)")
+  Output: "**Q6** : Perform a t-test comparing `feel_safe_day` by `gender` in `fear_of_crime_survey`."
+  CorrectAnswer: t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)
+  AnswerTests: omnitest(correctExpr = "t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)")
   Hint: Use the formula interface inside `t.test()`.
   Feedback: |
     ✔️ t-test done! You performed the t-test correctly.
@@ -65,8 +65,8 @@
 
 - Class: cmd_question
   Output: "**Q7** : What is the p-value of the t-test you just performed? (Assign the t-test to `ttest_result` and extract the p-value.)"
-  CorrectAnswer: ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); ttest_result$p.value
-  AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(fear_score ~ neighborhood, data = fear_of_crime_survey); ttest_result$p.value")
+  CorrectAnswer: ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value
+  AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value")
   Hint: Assign the t-test to `ttest_result` and use `$p.value`.
   Feedback: |
     ✔️ Correct! You extracted the p-value from the t-test result.
