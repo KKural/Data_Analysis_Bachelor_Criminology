@@ -74,7 +74,11 @@
 
 - Class: mult_question
   Output: "**Q10** : Which R function carries out a **chi-square** test?"
-  AnswerChoices: chisq.test(); t.test(); cor(); mean()
+  AnswerChoices: 
+    - chisq.test()
+    - t.test()
+    - cor()
+    - mean()
   CorrectAnswer: chisq.test()
   AnswerTests: omnitest(correctVal = "chisq.test()")
   Hint: It starts with *chisq*.
@@ -82,3 +86,4 @@
 
 - Class: text
   Output: You have completed the T-Test & Chi-Square lesson—well done!
+
