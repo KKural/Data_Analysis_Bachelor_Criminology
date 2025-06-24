@@ -1,13 +1,10 @@
 - Class: meta
   Course: Data Analysis - Bachelor criminolgy
-  Lesson: T_Test_and_Chi_Square
+  Lesson: Basics_of_R
   Author: Kural K.
   Type: Standard
   Organization: UGent
   Version: 2.5
-
-- Class: text
-  Output: Welcome to the **T-Test and Chi-Square** lesson! You’ll work with synthetic criminology datasets to practice t-tests and chi-square tests in R.
 
 - Class: cmd_question
   Output: "**Q1** : Load the R package `crimsyndata` using the library function. This package contains several datasets that you will use in the following exercises."
@@ -19,87 +16,152 @@
     ❌ Remember to use: library(crimsyndata)
 
 - Class: cmd_question
-  Output: "**Q2** : What are the column names of `crime_stats_ghent`?"
-  CorrectAnswer: colnames(crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
+  Output: "**Q2** : What are the column names of `df_crime_stats_ghent`?"
+  CorrectAnswer: colnames(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "colnames(df_crime_stats_ghent)")
   Hint: Use `colnames()` on the data frame you just loaded.
   Feedback: |
     ✔️ Correct! You have listed all the column names. Great job!
-    ❌ Try using colnames(crime_stats_ghent) to see the column names.
+    ❌ Try using colnames(df_crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
-  Output: "**Q3** : What is the structure of `crime_stats_ghent`?"
-  CorrectAnswer: str(crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
+  Output: "**Q3** : What is the structure of `df_crime_stats_ghent`?"
+  CorrectAnswer: str(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "str(df_crime_stats_ghent)")
   Hint: Use `str()` to see structure.
   Feedback: |
     ✔️ Well done! You have displayed the structure of the data frame.
-    ❌ Use str(crime_stats_ghent) to see the structure of the data frame.
+    ❌ Use str(df_crime_stats_ghent) to see the structure of the data frame.
 
 - Class: cmd_question
-  Output: "**Q4** : How many rows are in `crime_stats_ghent`? (Use a function, not a hard-coded number.)"
-  CorrectAnswer: nrow(crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "nrow(crime_stats_ghent)")
+  Output: "**Q4** : How many rows are in `df_crime_stats_ghent`? (Use a function, not a hard-coded number.)"
+  CorrectAnswer: nrow(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "nrow(df_crime_stats_ghent)")
   Hint: Try `nrow()` on the data frame.
   Feedback: |
     ✔️ Good! You have found the number of rows in the data frame.
-    ❌ Use nrow(crime_stats_ghent) to get the number of rows.
+    ❌ Use nrow(df_crime_stats_ghent) to get the number of rows.
 
 - Class: cmd_question
-  Output: "**Q5** : What are the dimensions of `crime_stats_ghent`?"
-  CorrectAnswer: dim(crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "dim(crime_stats_ghent)")
+  Output: "**Q5** : What are the dimensions of `df_crime_stats_ghent`?"
+  CorrectAnswer: dim(df_crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "dim(df_crime_stats_ghent)")
   Hint: Use `dim()` to get both rows and columns.
   Feedback: |
     ✔️ Excellent! You have displayed both the number of rows and columns.
-    ❌ Use dim(crime_stats_ghent) to get the dimensions.
+    ❌ Use dim(df_crime_stats_ghent) to get the dimensions.
 
 - Class: cmd_question
-  Output: "**Q6** : Perform a t-test comparing `feel_safe_day` by `gender` in `fear_of_crime_survey`."
-  CorrectAnswer: t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)
-  AnswerTests: omnitest(correctExpr = "t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)")
-  Hint: Use the formula interface inside `t.test()`.
+  Output: "**Q6** : What are the column names of `crime_stats_ghent`?"
+  CorrectAnswer: colnames(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
+  Hint: Use `colnames()` on the dataset.
   Feedback: |
-    ✔️ t-test done! You performed the t-test correctly.
-    ❌ Check the argument order and data frame.
+    ✔️ Correct! You have listed the column names for crime_stats_ghent.
+    ❌ Use colnames(crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
-  Output: "**Q7** : What is the p-value of the t-test you just performed? (Assign the t-test to `ttest_result` and extract the p-value.)"
-  CorrectAnswer: ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value
-  AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value")
-  Hint: Assign the t-test to `ttest_result` and use `$p.value`.
+  Output: "**Q7** : How many rows are in `neighborhood_index`? (Use a function, not a hard-coded number.)"
+  CorrectAnswer: nrow(neighborhood_index)
+  AnswerTests: omnitest(correctExpr = "nrow(neighborhood_index)")
+  Hint: Try `nrow()` on the data frame.
   Feedback: |
-    ✔️ Correct! You extracted the p-value from the t-test result.
-    ❌ Make sure you assign and extract the p-value.
-
-- Class: cmd_question
-  Output: "**Q8** : Create a contingency table of `district` × `crime_type` in `crime_stats_ghent` and perform a chi-square test."
-  CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
-  AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
-  Hint: Wrap `table()` inside `chisq.test()`.
-  Feedback: |
-    ✔️ Chi-square test complete! You performed the test correctly.
-    ❌ Make sure you pass a *table* to `chisq.test()`.
-
-- Class: cmd_question
-  Output: "**Q9** : What is the p-value of the chi-square test you just performed? (Assign the test to `chisq_result` and extract the p-value.)"
-  CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value
-  AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value")
-  Hint: Assign the chi-square test to `chisq_result` and use `$p.value`.
-  Feedback: |
-    ✔️ Correct! You extracted the p-value from the chi-square test result.
-    ❌ Make sure you assign and extract the p-value.
+    ✔️ Good! You have found the number of rows in neighborhood_index.
+    ❌ Use nrow(neighborhood_index) to get the number of rows.
 
 - Class: mult_question
-  Output: "**Q10** : Which R function carries out a **chi-square** test?"
-  AnswerChoices: chisq.test();t.test();cor();mean()
-  CorrectAnswer: chisq.test()
-  AnswerTests: omnitest(correctVal = "chisq.test()")
-  Hint: It starts with *chisq*.
+  Output: "**Q8** : The variable `clearance_rate` in `police_effort_index` is measured on which scale?"
+  AnswerChoices: Nominal;Ordinal;Ratio
+  CorrectAnswer: Ratio
+  AnswerTests: omnitest(correctVal = "Ratio")
+  Hint: Can you subtract and say one value is twice another?
   Feedback: |
-    ✔️ Correct. The function is `chisq.test()`.
-    ❌ Recall that chi-square starts with *chisq*.
+    ✔️ Correct! `clearance_rate` is a ratio variable because it has a true zero and meaningful ratios.
+    ❌ Remember, ratio variables have a true zero and allow for meaningful comparisons.
 
-- Class: text
-  Output: You have completed the T-Test & Chi-Square lesson—well done!
+- Class: cmd_question
+  Output: "**Q9** : Extract the `district` column from `crime_stats_ghent`."
+  CorrectAnswer: crime_stats_ghent$district
+  AnswerTests: omnitest(correctExpr = "crime_stats_ghent$district")
+  Hint: Use `$` to extract a column.
+  Feedback: "✔️ Well done! ❌ Use `crime_stats_ghent$district`."
 
+- Class: cmd_question
+  Output: "**Q10** : Create `low_safety` as all rows in `fear_of_crime_survey` where `feel_safe_night < 3`. Print the first 6 rows."
+  CorrectAnswer: low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3); head(low_safety)
+  AnswerTests: is.data.frame(last_value) && nrow(last_value) > 0
+  Hint: Use `%>% filter(feel_safe_night < 3)` and assign to `low_safety`, then print the first 6 rows.
+  Feedback: "✔️ Nice! | ❌ Did you filter and assign correctly, and print the first 6 rows?"
+
+- Class: mult_question
+  Output: "**Q11** : The variable `poverty_rate` in `neighborhood_index` is measured on which scale?"
+  AnswerChoices: Nominal;Ordinal;Ratio
+  CorrectAnswer: Ratio
+  AnswerTests: omnitest(correctVal = "Ratio")
+  Hint: Is there a true zero and meaningful ratios?
+  Feedback: "✔️ Correct! ❌ `poverty_rate` is a ratio variable."
+
+- Class: cmd_question
+  Output: "**Q12** : What is the mean of `violent_crimes` in `crime_stats_ghent`?"
+  CorrectAnswer: mean(crime_stats_ghent$violent_crimes)
+  AnswerTests: omnitest(correctExpr = "mean(crime_stats_ghent$violent_crimes)")
+  Hint: Use `mean()` on the column.
+  Feedback: "✔️ Correct! ❌ Use `mean(crime_stats_ghent$violent_crimes)`."
+
+- Class: cmd_question
+  Output: "**Q13** : Show the first 6 rows of `crime_journal_notes`."
+  CorrectAnswer: head(crime_journal_notes)
+  AnswerTests: omnitest(correctExpr = "head(crime_journal_notes)")
+  Hint: Use `head()` on the dataset.
+  Feedback: "✔️ Good! ❌ Use `head(crime_journal_notes)`."
+
+- Class: cmd_question
+  Output: "**Q14** : What is your current working directory?"
+  CorrectAnswer: getwd()
+  AnswerTests: omnitest(correctExpr = "getwd()")
+  Hint: Use `getwd()` to check your working directory.
+  Feedback: "✔️ That's it! ❌ Use `getwd()`."
+
+# Chapter 2: R Basics
+- Class: cmd_question
+  Output: "**Q15** : What is 5 + 7?"
+  CorrectAnswer: 12
+  AnswerTests: omnitest(correctVal = 12)
+  Hint: Type the result of 5 + 7.
+  Feedback: "✔️ Correct! ❌ Try again."
+
+- Class: cmd_question
+  Output: "**Q16** : Assign the value 20 to a variable called `y`."
+  CorrectAnswer: y <- 20
+  AnswerTests: omnitest(correctExpr = "y <- 20")
+  Hint: Use `<-` to assign values in R.
+  Feedback: "✔️ Good! ❌ Use `y <- 20`."
+
+- Class: cmd_question
+  Output: "**Q17** : Create a vector `nums` with the numbers 4, 5, 6."
+  CorrectAnswer: nums <- c(4, 5, 6)
+  AnswerTests: omnitest(correctExpr = "nums <- c(4, 5, 6)")
+  Hint: Use `c()` to combine numbers into a vector.
+  Feedback: "✔️ Well done! ❌ Use `nums <- c(4, 5, 6)`."
+
+# Chapter 3: R Data Types
+- Class: cmd_question
+  Output: "**Q18** : What is the class of the value 2.71?"
+  CorrectAnswer: class(2.71)
+  AnswerTests: omnitest(correctExpr = "class(2.71)")
+  Hint: Use `class()` to check the type.
+  Feedback: "✔️ Correct! ❌ Use `class(2.71)`."
+
+- Class: cmd_question
+  Output: "**Q19** : What is the class of the value 'swirl'?"
+  CorrectAnswer: class('swirl')
+  AnswerTests: omnitest(correctExpr = "class('swirl')")
+  Hint: Use `class()` on a string.
+  Feedback: "✔️ Good! ❌ Use `class('swirl')`."
+
+- Class: cmd_question
+  Output: "**Q20** : What is the class of the value FALSE?"
+  CorrectAnswer: class(FALSE)
+  AnswerTests: omnitest(correctExpr = "class(FALSE)")
+  Hint: Use `class()` on a logical value.
+  Feedback: "✔️ Well done! ❌ Use `class(FALSE)`."
