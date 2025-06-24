@@ -87,11 +87,11 @@
   Feedback: "✔️ Well done! ❌ Use `crime_stats_ghent$district`."
 
 - Class: cmd_question
-  Output: "**Q10** : Create `low_safety` as all rows in `fear_of_crime_survey` where `feel_safe_night < 3`."
-  CorrectAnswer: low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3)
-  AnswerTests: omnitest(correctExpr = "low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3)")
-  Hint: Use `%>% filter(feel_safe_night < 3)` and assign to `low_safety`.
-  Feedback: "✔️ Nice! ❌ Did you filter and assign correctly?"
+  Output: "**Q10** : Create `low_safety` as all rows in `fear_of_crime_survey` where `feel_safe_night < 3`. Print the first 6 rows."
+  CorrectAnswer: low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3); head(low_safety)
+  AnswerTests: is.data.frame(last_value) && nrow(last_value) > 0
+  Hint: Use `%>% filter(feel_safe_night < 3)` and assign to `low_safety`, then print the first 6 rows.
+  Feedback: "✔️ Nice! | ❌ Did you filter and assign correctly, and print the first 6 rows?"
 
 - Class: mult_question
   Output: "**Q11** : The variable `poverty_rate` in `neighborhood_index` is measured on which scale?"
