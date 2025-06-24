@@ -7,7 +7,3 @@
 # variables when appropriate. The answer test, creates_new_var()
 # can be used for for the purpose, but it also re-evaluates the
 # expression which the user entered, so care must be taken.
-
-# Load papaja for APA style tables
-if (!require(papaja)) install.packages("papaja")
-library(papaja)
