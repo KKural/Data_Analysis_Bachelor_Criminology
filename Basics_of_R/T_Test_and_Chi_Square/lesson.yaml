@@ -1,0 +1,38 @@
+- Class: meta
+  Course: Data Analysis Bachelor Criminology
+  Lesson: T Test and Chi-Square
+  Author: Kural K.
+  Type: Standard
+  Organization: UGent
+  Version: 1.1
+
+- Class: text
+  Output: "Welcome to the T Test and Chi-Square lesson! We'll practice t-tests, chi-square tests, and table creation using real data from the crimsyndata package."
+
+- Class: cmd_question
+  Output: "View the first few rows of the crime_stats_ghent dataset."
+  CorrectAnswer: head(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "head(crime_stats_ghent)")
+  Hint: Use head() on the dataset.
+  Feedback: "✔️ Good! ❌ Use head(crime_stats_ghent)."
+
+- Class: cmd_question
+  Output: "Perform a t-test comparing the variable 'violent_crimes' between two neighborhoods: 'Centrum' and 'Rabot-Blaisantvest'. (Hint: Use subset or dplyr to filter, then t.test())."
+  CorrectAnswer: t.test(crime_stats_ghent$violent_crimes[crime_stats_ghent$neighborhood == 'Centrum'], crime_stats_ghent$violent_crimes[crime_stats_ghent$neighborhood == 'Rabot-Blaisantvest'])
+  AnswerTests: omnitest(correctExpr = "t.test(crime_stats_ghent$violent_crimes[crime_stats_ghent$neighborhood == 'Centrum'], crime_stats_ghent$violent_crimes[crime_stats_ghent$neighborhood == 'Rabot-Blaisantvest'])")
+  Hint: Use t.test() on the two groups.
+  Feedback: "✔️ Correct! ❌ Use t.test() on the two groups."
+
+- Class: cmd_question
+  Output: "Create a table of 'district' by 'year' from crime_stats_ghent."
+  CorrectAnswer: table(crime_stats_ghent$district, crime_stats_ghent$year)
+  AnswerTests: omnitest(correctExpr = "table(crime_stats_ghent$district, crime_stats_ghent$year)")
+  Hint: Use table() with two columns.
+  Feedback: "✔️ Good! ❌ Use table(crime_stats_ghent$district, crime_stats_ghent$year)."
+
+- Class: cmd_question
+  Output: "Perform a chi-square test on the table you just created."
+  CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$year))
+  AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$year))")
+  Hint: Use chisq.test() on the table.
+  Feedback: "✔️ Correct! ❌ Use chisq.test(table(...))."
