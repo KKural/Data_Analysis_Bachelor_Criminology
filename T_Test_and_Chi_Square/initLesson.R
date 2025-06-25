@@ -7,4 +7,3 @@ data("crime_stats_ghent", package = "crimsyndata")
 data("neighborhood_index", package = "crimsyndata")
 
 crime_stats_ghent <- crime_stats_ghent
-neighborhood_index <- neighborhood_index
