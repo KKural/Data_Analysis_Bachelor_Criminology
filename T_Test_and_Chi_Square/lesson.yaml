@@ -18,9 +18,6 @@
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
   Hint: |
     Use colnames() on the data frame you just loaded.
-  Feedback: |
-    ✔️ Correct! You have listed all the column names. Great job!
-    ❌ Try using colnames(crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
   Output: Q3 What is the structure of crime_stats_ghent?
@@ -28,9 +25,6 @@
   AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
   Hint: |
     Use str() to see structure.
-  Feedback: |
-    ✔️ Well done! You have displayed the structure of the data frame.
-    ❌ Use str(crime_stats_ghent) to see the structure of the data frame.
 
 - Class: cmd_question
   Output: Q4 How many rows are in crime_stats_ghent? (Use a function, not a hard-coded number.)
@@ -38,9 +32,6 @@
   AnswerTests: omnitest(correctExpr = "nrow(crime_stats_ghent)")
   Hint: |
     Try nrow() on the data frame.
-  Feedback: |
-    ✔️ Good! You have found the number of rows in the data frame.
-    ❌ Use nrow(crime_stats_ghent) to get the number of rows.
 
 - Class: cmd_question
   Output: Q5 What are the dimensions of crime_stats_ghent?
@@ -48,9 +39,6 @@
   AnswerTests: omnitest(correctExpr = "dim(crime_stats_ghent)")
   Hint: |
     Use dim() to get both rows and columns.
-  Feedback: |
-    ✔️ Excellent! You have displayed both the number of rows and columns.
-    ❌ Use dim(crime_stats_ghent) to get the dimensions.
 
 - Class: cmd_question
   Output: Q6 Perform a t-test comparing feel_safe_day by gender in fear_of_crime_survey.
@@ -58,9 +46,6 @@
   AnswerTests: omnitest(correctExpr = "t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)")
   Hint: |
     Use the formula interface inside t.test().
-  Feedback: |
-    ✔️ Correct! You performed a t-test comparing feel_safe_day by gender.
-    ❌ Try t.test(feel_safe_day ~ gender, data = fear_of_crime_survey).
 
 - Class: cmd_question
   Output: Q7 What is the p-value of the t-test you just performed? (Assign the t-test to ttest_result and extract the p-value.)
@@ -68,9 +53,6 @@
   AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value")
   Hint: |
     Assign the t-test to ttest_result and use $p.value.
-  Feedback: |
-    ✔️ Well done! You extracted the p-value from the t-test result.
-    ❌ Assign the t-test to ttest_result and use ttest_result$p.value.
 
 - Class: cmd_question
   Output: Q8 Create a contingency table of district × crime_type in crime_stats_ghent and perform a chi-square test.
@@ -78,9 +60,6 @@
   AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
   Hint: |
     Wrap table() inside chisq.test().
-  Feedback: |
-    ✔️ Correct! You performed a chi-square test on the contingency table.
-    ❌ Use chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)).
 
 - Class: cmd_question
   Output: Q9 What is the p-value of the chi-square test you just performed? (Assign the test to chisq_result and extract the p-value.)
@@ -88,9 +67,6 @@
   AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value")
   Hint: |
     Assign the chi-square test to chisq_result and use $p.value.
-  Feedback: |
-    ✔️ Good! You extracted the p-value from the chi-square test result.
-    ❌ Assign the chi-square test to chisq_result and use chisq_result$p.value.
 
 - Class: mult_question
   Output: Q10 Which R function carries out a chi-square test?
@@ -99,9 +75,6 @@
   AnswerTests: omnitest(correctVal = "chisq.test()")
   Hint: |
     It starts with chisq.
-  Feedback: |
-    ✔️ Correct! The function is chisq.test().
-    ❌ The correct answer is chisq.test().
 
 - Class: text
   Output: You have completed the T-Test & Chi-Square lesson. Well done.
