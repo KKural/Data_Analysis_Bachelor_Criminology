@@ -7,8 +7,8 @@
   Version: 2.5
 
 - Class: text
-  Output: Today, I'll be teaching you the basics of data analysis. It probably makes
-    sense to start by defining the word DATA.
+  Output: |
+    Today, I'll be teaching you the basics of data analysis. It probably makes sense to start by defining the word DATA.
     
 - Class: cmd_question
   Output: "**Q2** : What are the column names of `df_crime_stats_ghent`?"
