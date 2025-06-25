@@ -1,7 +1,7 @@
 # ========== 1. META BLOCK ==========
 - Class: meta
-  Course: "Data Analysis - Bachelor criminolgy"
-  Lesson: "Basics of R"
+  Course: "Data Analysis - Bachelor Criminology"
+  Lesson: "Data Inspection with crime_stats_ghent"
   Author: "Kural K."
   Type: Standard
   Organization: "UGent"
@@ -10,8 +10,11 @@
 # ========== 2. WELCOME MESSAGE (padded) ==========
 - Class: text
   Output: |
-    Welcome to the R basic lesson!
-    You’ll work with synthetic criminology datasets to practice basics of R.
+    In this lesson, you will work with a **pre-loaded synthetic** dataset, `crime_stats_ghent`.
+    This simulated data mimics real criminology statistics so you can safely explore
+    and practise basic R inspection functions.
+    You’ll learn to load packages, view the first rows, inspect structure,
+    check class, dimensions, length, glimpse, and summary.
   CorrectAnswer: ""
   AnswerTests:  ""
   Hint:         ""
@@ -19,201 +22,145 @@
 
 # ========== 3. QUESTIONS ==========
 - Class: cmd_question
-  Output: Q2 What are the column names of df_crime_stats_ghent?
-  CorrectAnswer: colnames(df_crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "colnames(df_crime_stats_ghent)")
-  Hint: |
-    Use colnames() on the data frame you just loaded.
+  Output: Q1  Load the **dplyr** package.
+  CorrectAnswer: library(dplyr)
+  AnswerTests: omnitest(correctExpr = "library(dplyr)")
+  Hint: "Use `library(dplyr)` to load the package."
   Feedback: |
-    ✔️ Correct! You have listed all the column names. Great job!
-    ❌ Try using colnames(df_crime_stats_ghent) to see the column names.
+    ✔️ Correct! The **dplyr** package is loaded.
+    ❌ Try `library(dplyr)`.
 
 - Class: cmd_question
-  Output: Q3 What is the structure of df_crime_stats_ghent?
-  CorrectAnswer: str(df_crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "str(df_crime_stats_ghent)")
-  Hint: |
-    Use str() to see structure.
+  Output: Q2  Show the first 6 rows of `crime_stats_ghent`.
+  CorrectAnswer: head(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "head(crime_stats_ghent)")
+  Hint: "Use `head(crime_stats_ghent)`."
   Feedback: |
-    ✔️ Well done! You have displayed the structure of the data frame.
-    ❌ Use str(df_crime_stats_ghent) to see the structure of the data frame.
+    ✔️ Well done! You’ve peeked at the top of your data.
+    ❌ Try `head(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q4 How many rows are in df_crime_stats_ghent? (Use a function, not a hard-coded number.)
-  CorrectAnswer: nrow(df_crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "nrow(df_crime_stats_ghent)")
-  Hint: |
-    Try nrow() on the data frame.
-  Feedback: |
-    ✔️ Good! You have found the number of rows in the data frame.
-    ❌ Use nrow(df_crime_stats_ghent) to get the number of rows.
-
-- Class: cmd_question
-  Output: Q5 What are the dimensions of df_crime_stats_ghent?
-  CorrectAnswer: dim(df_crime_stats_ghent)
-  AnswerTests: omnitest(correctExpr = "dim(df_crime_stats_ghent)")
-  Hint: |
-    Use dim() to get both rows and columns.
-  Feedback: |
-    ✔️ Excellent! You have displayed both the number of rows and columns.
-    ❌ Use dim(df_crime_stats_ghent) to get the dimensions.
-
-- Class: cmd_question
-  Output: Q6 What are the column names of crime_stats_ghent?
+  Output: Q3  What are the column names of `crime_stats_ghent`?
   CorrectAnswer: colnames(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
-  Hint: |
-    Use colnames() on the dataset.
+  Hint: "Use `colnames()` on the data frame."
   Feedback: |
-    ✔️ Correct! You have listed the column names for crime_stats_ghent.
-    ❌ Use colnames(crime_stats_ghent) to see the column names.
+    ✔️ Correct! Those are the variable names.
+    ❌ Use `colnames(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q7 How many rows are in neighborhood_index? (Use a function, not a hard-coded number.)
-  CorrectAnswer: nrow(neighborhood_index)
-  AnswerTests: omnitest(correctExpr = "nrow(neighborhood_index)")
-  Hint: |
-    Try nrow() on the data frame.
+  Output: Q4  Display the structure of `crime_stats_ghent`.
+  CorrectAnswer: str(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
+  Hint: "Use `str()` to view types and sample values."
   Feedback: |
-    ✔️ Good! You have found the number of rows in neighborhood_index.
-    ❌ Use nrow(neighborhood_index) to get the number of rows.
-
-- Class: mult_question
-  Output: Q8 The variable clearance_rate in police_effort_index is measured on which scale?
-  AnswerChoices: Nominal;Ordinal;Ratio
-  CorrectAnswer: Ratio
-  AnswerTests: omnitest(correctVal = "Ratio")
-  Hint: |
-    Can you subtract and say one value is twice another?
-  Feedback: |
-    ✔️ Correct! clearance_rate is a ratio variable because it has a true zero and meaningful ratios.
-    ❌ Remember, ratio variables have a true zero and allow for meaningful comparisons.
+    ✔️ Good! `str()` shows each column’s type and preview.
+    ❌ Try `str(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q9 Extract the district column from crime_stats_ghent.
-  CorrectAnswer: crime_stats_ghent$district
-  AnswerTests: omnitest(correctExpr = "crime_stats_ghent$district")
-  Hint: |
-    Use $ to extract a column.
+  Output: Q5  Determine the class of `crime_stats_ghent`.
+  CorrectAnswer: class(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "class(crime_stats_ghent)")
+  Hint: "Use `class()` to inspect the object type."
   Feedback: |
-    ✔️ Well done!
-    ❌ Use crime_stats_ghent$district.
+    ✔️ Correct! That tells you whether it’s a data frame, tibble, etc.
+    ❌ Use `class(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q10 Create low_safety as all rows in fear_of_crime_survey where feel_safe_night < 3. Print the first 6 rows.
-  CorrectAnswer: low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3); head(low_safety)
-  AnswerTests: "is.data.frame(last_value) && nrow(last_value) > 0"
-  Hint: |
-    Use %>% filter(feel_safe_night < 3) and assign to low_safety, then print the first 6 rows.
+  Output: Q6  Get the dimensions (rows, columns) of `crime_stats_ghent`.
+  CorrectAnswer: dim(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "dim(crime_stats_ghent)")
+  Hint: "Use `dim()` for a two-element vector."
   Feedback: |
-    ✔️ Nice!
-    ❌ Did you filter and assign correctly, and print the first 6 rows?
-
-- Class: mult_question
-  Output: Q11 The variable poverty_rate in neighborhood_index is measured on which scale?
-  AnswerChoices: Nominal;Ordinal;Ratio
-  CorrectAnswer: Ratio
-  AnswerTests: omnitest(correctVal = "Ratio")
-  Hint: |
-    Is there a true zero and meaningful ratios?
-  Feedback: |
-    ✔️ Correct!
-    ❌ poverty_rate is a ratio variable.
+    ✔️ Excellent! You know the size of your data.
+    ❌ Try `dim(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q12 What is the mean of violent_crimes in crime_stats_ghent?
-  CorrectAnswer: mean(crime_stats_ghent$violent_crimes)
-  AnswerTests: omnitest(correctExpr = "mean(crime_stats_ghent$violent_crimes)")
-  Hint: |
-    Use mean() on the column.
+  Output: Q7  How many entries are in the `district` column?
+  CorrectAnswer: length(crime_stats_ghent$district)
+  AnswerTests: omnitest(correctExpr = "length(crime_stats_ghent$district)")
+  Hint: "Use `length()` on the vector."
   Feedback: |
-    ✔️ Correct!
-    ❌ Use mean(crime_stats_ghent$violent_crimes).
+    ✔️ Nice! That tells you how many rows exist for that column.
+    ❌ Use `length(crime_stats_ghent$district)`.
 
 - Class: cmd_question
-  Output: Q13 Show the first 6 rows of crime_journal_notes.
-  CorrectAnswer: head(crime_journal_notes)
-  AnswerTests: omnitest(correctExpr = "head(crime_journal_notes)")
-  Hint: |
-    Use head() on the dataset.
+  Output: Q8  Use `glimpse()` to inspect `crime_stats_ghent`.
+  CorrectAnswer: glimpse(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "glimpse(crime_stats_ghent)")
+  Hint: "`glimpse()` is in **tibble** (loaded with dplyr)."
   Feedback: |
-    ✔️ Good!
-    ❌ Use head(crime_journal_notes).
+    ✔️ Great! `glimpse()` gives a transposed overview.
+    ❌ Try `glimpse(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q14 What is your current working directory?
-  CorrectAnswer: getwd()
-  AnswerTests: omnitest(correctExpr = "getwd()")
-  Hint: |
-    Use getwd() to check your working directory.
+  Output: Q9  Provide a statistical summary of all columns in `crime_stats_ghent`.
+  CorrectAnswer: summary(crime_stats_ghent)
+  AnswerTests: omnitest(correctExpr = "summary(crime_stats_ghent)")
+  Hint: "Use base R’s `summary()`."
   Feedback: |
-    ✔️ That's it!
-    ❌ Use getwd().
+    ✔️ Excellent! You see mins, maxes, medians, means, quartiles.
+    ❌ Use `summary(crime_stats_ghent)`.
 
 - Class: cmd_question
-  Output: Q15 What is 5 + 7?
-  CorrectAnswer: 12
-  AnswerTests: omnitest(correctVal = 12)
-  Hint: |
-    Type the result of 5 + 7.
+  Output: Q10  Count any missing values in `crime_stats_ghent`.
+  CorrectAnswer: sum(is.na(crime_stats_ghent))
+  AnswerTests: omnitest(correctExpr = "sum(is.na(crime_stats_ghent))")
+  Hint: "Combine `is.na()` with `sum()`."
   Feedback: |
-    ✔️ Correct!
-    ❌ Try again.
+    ✔️ Perfect! You know how many NAs are present.
+    ❌ Try `sum(is.na(crime_stats_ghent))`.
 
 - Class: cmd_question
-  Output: Q16 Assign the value 20 to a variable called y.
-  CorrectAnswer: y <- 20
-  AnswerTests: omnitest(correctExpr = "y <- 20")
-  Hint: |
-    Use <- to assign values in R.
+  Output: Q11  What is the maximum `property_crimes` value in `crime_stats_ghent`?
+  CorrectAnswer: max(crime_stats_ghent$property_crimes)
+  AnswerTests: omnitest(correctExpr = "max(crime_stats_ghent$property_crimes)")
+  Hint: "Use `max()` on the `property_crimes` column."
   Feedback: |
-    ✔️ Good!
-    ❌ Use y <- 20.
+    ✔️ Great! That shows the highest number of property crimes recorded.
+    ❌ Try `max(crime_stats_ghent$property_crimes)`.
 
 - Class: cmd_question
-  Output: Q17 Create a vector nums with the numbers 4, 5, 6.
-  CorrectAnswer: nums <- c(4, 5, 6)
-  AnswerTests: omnitest(correctExpr = "nums <- c(4, 5, 6)")
-  Hint: |
-    Use c() to combine numbers into a vector.
+  Output: Q12  How many distinct crime types are in `crime_stats_ghent`?
+  CorrectAnswer: length(unique(crime_stats_ghent$crime_type))
+  AnswerTests: omnitest(correctExpr = "length(unique(crime_stats_ghent$crime_type))")
+  Hint: "Combine `unique()` and `length()` on the `crime_type` column."
   Feedback: |
-    ✔️ Well done!
-    ❌ Use nums <- c(4, 5, 6).
+    ✔️ Correct! You’ve counted the different crime categories.
+    ❌ Try `length(unique(crime_stats_ghent$crime_type))`.
 
 - Class: cmd_question
-  Output: Q18 What is the class of the value 2.71?
-  CorrectAnswer: class(2.71)
-  AnswerTests: omnitest(correctExpr = "class(2.71)")
-  Hint: |
-    Use class() to check the type.
+  Output: Q13  What is the average `feel_safe_day` score in `fear_of_crime_survey`?
+  CorrectAnswer: mean(fear_of_crime_survey$feel_safe_day)
+  AnswerTests: omnitest(correctExpr = "mean(fear_of_crime_survey$feel_safe_day)")
+  Hint: "Use `mean()` on the `feel_safe_day` column."
   Feedback: |
-    ✔️ Correct!
-    ❌ Use class(2.71).
+    ✔️ Nicely done! That gives the average daytime safety feeling.
+    ❌ Try `mean(fear_of_crime_survey$feel_safe_day)`.
 
 - Class: cmd_question
-  Output: Q19 What is the class of the value 'swirl'?
-  CorrectAnswer: class('swirl')
-  AnswerTests: omnitest(correctExpr = "class('swirl')")
-  Hint: |
-    Use class() on a string.
+  Output: Q14  Which neighborhood has the highest `urban_density` in `neighborhood_index`?
+  CorrectAnswer: neighborhood_index$neighborhood[which.max(neighborhood_index$urban_density)]
+  AnswerTests: omnitest(correctExpr = "neighborhood_index$neighborhood[which.max(neighborhood_index$urban_density)]")
+  Hint: "Use `which.max()` on `urban_density`, then index `neighborhood`."
   Feedback: |
-    ✔️ Good!
-    ❌ Use class('swirl').
+    ✔️ Correct! That neighborhood is the most densely populated.
+    ❌ Try `neighborhood_index$neighborhood[which.max(neighborhood_index$urban_density)]`.
 
 - Class: cmd_question
-  Output: Q20 What is the class of the value FALSE?
-  CorrectAnswer: class(FALSE)
-  AnswerTests: omnitest(correctExpr = "class(FALSE)")
-  Hint: |
-    Use class() on a logical value.
+  Output: Q15  What is the mean `clearance_rate` in `police_effort_index`?
+  CorrectAnswer: mean(police_effort_index$clearance_rate)
+  AnswerTests: omnitest(correctExpr = "mean(police_effort_index$clearance_rate)")
+  Hint: "Use `mean()` on the `clearance_rate` column."
   Feedback: |
-    ✔️ Well done!
-    ❌ Use class(FALSE).
+    ✔️ Excellent! That tells you the average clearance rate across districts.
+    ❌ Try `mean(police_effort_index$clearance_rate)`.
 
 # ========== 4. COMPLETION MESSAGE (padded) ==========
 - Class: text
   Output: |
-    You have successfully completed the Basics of R lesson. Well done.
+    🎉 You have completed the Data Inspection lesson!
+    You’ve mastered the essentials of examining your datasets.
   CorrectAnswer: ""
   AnswerTests:  ""
   Hint:         ""
