@@ -27,8 +27,8 @@
   AnswerTests: omnitest(correctExpr = "library(dplyr)")
   Hint: "Use `library(dplyr)` to load the package."
   Feedback: |
-    ✔️ Correct! The **dplyr** package is loaded.
-    ❌ Try `library(dplyr)`.
+    ✔️ **Great!** `dplyr` is now loaded, giving you powerful tools like `filter()`, `select()`, and the pipe `%>%` for streamlined data manipulation.
+    ❌ **Not quite.** Make sure you type exactly `library(readr)` or `library(dplyr)` depending on which package you intend to load, then press Enter.
 
 - Class: cmd_question
   Output: Q2  Show the first 6 rows of `crime_stats_ghent`.
@@ -36,71 +36,71 @@
   AnswerTests: omnitest(correctExpr = "head(crime_stats_ghent)")
   Hint: "Use `head(crime_stats_ghent)`."
   Feedback: |
-    ✔️ Well done! You’ve peeked at the top of your data.
-    ❌ Try `head(crime_stats_ghent)`.
+    ✔️ **Well done!** `head()` displays the top of your data so you can verify column names and preview values before proceeding.
+    ❌ **Try again.** Use `head(crime_stats_ghent)` to peek at the first six rows of the data frame.
 
 - Class: cmd_question
   Output: Q3  What are the column names of `crime_stats_ghent`?
   CorrectAnswer: colnames(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
-  Hint: "Use `colnames()` on the data frame."
+  Hint: "Use `colnames(crime_stats_ghent)` to retrieve variable names."
   Feedback: |
-    ✔️ Correct! Those are the variable names.
-    ❌ Use `colnames(crime_stats_ghent)`.
+    ✔️ **Correct!** `colnames()` returns a character vector of all column names, which you’ll need to reference when subsetting or summarizing.
+    ❌ **Give it another shot.** Type `colnames(crime_stats_ghent)` and press Enter to list the variables.
 
 - Class: cmd_question
   Output: Q4  Display the structure of `crime_stats_ghent`.
   CorrectAnswer: str(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
-  Hint: "Use `str()` to view types and sample values."
+  Hint: "Use `str(crime_stats_ghent)` to see types and a data preview."
   Feedback: |
-    ✔️ Good! `str()` shows each column’s type and preview.
-    ❌ Try `str(crime_stats_ghent)`.
+    ✔️ **Nice work!** `str()` shows each column’s data type and sample values—essential for catching import errors or unexpected factor levels.
+    ❌ **Almost there.** Try `str(crime_stats_ghent)` to inspect the internal structure of your data frame.
 
 - Class: cmd_question
   Output: Q5  Determine the class of `crime_stats_ghent`.
   CorrectAnswer: class(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "class(crime_stats_ghent)")
-  Hint: "Use `class()` to inspect the object type."
+  Hint: "Use `class(crime_stats_ghent)` to check its R object type."
   Feedback: |
-    ✔️ Correct! That tells you whether it’s a data frame, tibble, etc.
-    ❌ Use `class(crime_stats_ghent)`.
+    ✔️ **Exactly!** `class()` tells you whether your object is a `data.frame`, `tbl_df`, or another type, which affects how functions will treat it.
+    ❌ **Hint:** Type `class(crime_stats_ghent)` to identify the object’s class.
 
 - Class: cmd_question
   Output: Q6  Get the dimensions (rows, columns) of `crime_stats_ghent`.
   CorrectAnswer: dim(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "dim(crime_stats_ghent)")
-  Hint: "Use `dim()` for a two-element vector."
+  Hint: "Use `dim(crime_stats_ghent)` for a two-number vector."
   Feedback: |
-    ✔️ Excellent! You know the size of your data.
-    ❌ Try `dim(crime_stats_ghent)`.
+    ✔️ **Excellent!** `dim()` returns `c(nrow, ncol)`, so you immediately know the size of your dataset.
+    ❌ **Try again.** Use `dim(crime_stats_ghent)` to get both row and column counts.
 
 - Class: cmd_question
   Output: Q7  How many entries are in the `district` column?
   CorrectAnswer: length(crime_stats_ghent$district)
   AnswerTests: omnitest(correctExpr = "length(crime_stats_ghent$district)")
-  Hint: "Use `length()` on the vector."
+  Hint: "Use `length(crime_stats_ghent$district)` on the vector."
   Feedback: |
-    ✔️ Nice! That tells you how many rows exist for that column.
-    ❌ Use `length(crime_stats_ghent$district)`.
+    ✔️ **Good job!** `length()` tells you the number of elements in that column—this should match the total rows.
+    ❌ **Not quite.** Remember to specify the column: `length(crime_stats_ghent$district)`.
 
 - Class: cmd_question
   Output: Q8  Use `glimpse()` to inspect `crime_stats_ghent`.
   CorrectAnswer: glimpse(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "glimpse(crime_stats_ghent)")
-  Hint: "`glimpse()` is in **tibble** (loaded with dplyr)."
+  Hint: "`glimpse()` comes from tibble (loaded with dplyr)."
   Feedback: |
-    ✔️ Great! `glimpse()` gives a transposed overview.
-    ❌ Try `glimpse(crime_stats_ghent)`.
+    ✔️ **Fantastic!** `glimpse()` provides a transposed, concise overview of columns and types—perfect for large data frames.
+    ❌ **Give it another try.** Type `glimpse(crime_stats_ghent)` and press Enter.
 
 - Class: cmd_question
   Output: Q9  Provide a statistical summary of all columns in `crime_stats_ghent`.
   CorrectAnswer: summary(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "summary(crime_stats_ghent)")
-  Hint: "Use base R’s `summary()`."
+  Hint: "Use base R’s `summary(crime_stats_ghent)`."
   Feedback: |
-    ✔️ Excellent! You see mins, maxes, medians, means, quartiles.
-    ❌ Use `summary(crime_stats_ghent)`.
+    ✔️ **Excellent!** `summary()` shows min, 1st quartile, median, mean, 3rd quartile, max for numeric fields (and frequency tables for factors).
+    ❌ **Oops!** Try entering `summary(crime_stats_ghent)` to get a quick statistical overview.
 
 - Class: cmd_question
   Output: Q10  Count any missing values in `crime_stats_ghent`.
@@ -108,59 +108,59 @@
   AnswerTests: omnitest(correctExpr = "sum(is.na(crime_stats_ghent))")
   Hint: "Combine `is.na()` with `sum()`."
   Feedback: |
-    ✔️ Perfect! You know how many NAs are present.
-    ❌ Try `sum(is.na(crime_stats_ghent))`.
+    ✔️ **Perfect!** `sum(is.na())` counts all `NA`s in the data frame, alerting you to potential gaps before analysis.
+    ❌ **Not quite.** Try `sum(is.na(crime_stats_ghent))` to count missing entries.
 
 - Class: cmd_question
   Output: Q11  What is the maximum `property_crimes` value in `crime_stats_ghent`?
   CorrectAnswer: max(crime_stats_ghent$property_crimes)
   AnswerTests: omnitest(correctExpr = "max(crime_stats_ghent$property_crimes)")
-  Hint: "Use `max()` on the `property_crimes` column."
+  Hint: "Use `max(crime_stats_ghent$property_crimes)`."
   Feedback: |
-    ✔️ Great! That shows the highest number of property crimes recorded.
-    ❌ Try `max(crime_stats_ghent$property_crimes)`.
+    ✔️ **Great!** You’ve identified the highest property crime count—useful for spotting extremes.
+    ❌ **Hint:** Type `max(crime_stats_ghent$property_crimes)` to find the maximum.
 
 - Class: cmd_question
   Output: Q12  How many distinct crime types are in `crime_stats_ghent`?
   CorrectAnswer: length(unique(crime_stats_ghent$crime_type))
   AnswerTests: omnitest(correctExpr = "length(unique(crime_stats_ghent$crime_type))")
-  Hint: "Combine `unique()` and `length()` on the `crime_type` column."
+  Hint: "Combine `unique()` and `length()`."
   Feedback: |
-    ✔️ Correct! You’ve counted the different crime categories.
-    ❌ Try `length(unique(crime_stats_ghent$crime_type))`.
+    ✔️ **Correct!** You’ve counted the unique crime categories—important for factor-level summaries.
+    ❌ **Try again.** Use `length(unique(crime_stats_ghent$crime_type))`.
 
 - Class: cmd_question
   Output: Q13  What is the average `feel_safe_day` score in `fear_of_crime_survey`?
   CorrectAnswer: mean(fear_of_crime_survey$feel_safe_day)
   AnswerTests: omnitest(correctExpr = "mean(fear_of_crime_survey$feel_safe_day)")
-  Hint: "Use `mean()` on the `feel_safe_day` column."
+  Hint: "Use `mean(fear_of_crime_survey$feel_safe_day)`."
   Feedback: |
-    ✔️ Nicely done! That gives the average daytime safety feeling.
-    ❌ Try `mean(fear_of_crime_survey$feel_safe_day)`.
+    ✔️ **Nicely done!** That average gives you a sense of daytime safety perceptions.
+    ❌ **Not quite.** Try `mean(fear_of_crime_survey$feel_safe_day)`.
 
 - Class: cmd_question
   Output: Q14  Which neighborhood has the highest `urban_density` in `neighborhood_index`?
   CorrectAnswer: neighborhood_index$neighborhood[which.max(neighborhood_index$urban_density)]
   AnswerTests: omnitest(correctExpr = "neighborhood_index$neighborhood[which.max(neighborhood_index$urban_density)]")
-  Hint: "Use `which.max()` on `urban_density`, then index `neighborhood`."
+  Hint: "Use `which.max()` then index the `neighborhood` column."
   Feedback: |
-    ✔️ Correct! That neighborhood is the most densely populated.
-    ❌ Try `neighborhood_index$neighborhood[which.max(neighborhood_index$urban_density)]`.
+    ✔️ **Spot on!** You’ve located the neighborhood with the greatest population density—key for resource planning.
+    ❌ **Try again.** Use `which.max(neighborhood_index$urban_density)` and then pull the name.
 
 - Class: cmd_question
   Output: Q15  What is the mean `clearance_rate` in `police_effort_index`?
   CorrectAnswer: mean(police_effort_index$clearance_rate)
   AnswerTests: omnitest(correctExpr = "mean(police_effort_index$clearance_rate)")
-  Hint: "Use `mean()` on the `clearance_rate` column."
+  Hint: "Use `mean(police_effort_index$clearance_rate)`."
   Feedback: |
-    ✔️ Excellent! That tells you the average clearance rate across districts.
-    ❌ Try `mean(police_effort_index$clearance_rate)`.
+    ✔️ **Excellent!** The average clearance rate summarizes police effectiveness across districts.
+    ❌ **Oops!** Try `mean(police_effort_index$clearance_rate)`.
 
 # ========== 4. COMPLETION MESSAGE (padded) ==========
 - Class: text
   Output: |
     🎉 You have completed the Data Inspection lesson!
-    You’ve mastered the essentials of examining your datasets.
+    Through these steps, you’ve mastered the essentials of examining your datasets.
   CorrectAnswer: ""
   AnswerTests:  ""
   Hint:         ""
