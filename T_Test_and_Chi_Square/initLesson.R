@@ -13,4 +13,3 @@ crime_stats_ghent <- crime_stats_ghent
 neighborhood_index <- neighborhood_index
 fear_of_crime_survey <- fear_of_crime_survey
 police_effort_index <- police_effort_index
-crime_journal_notes <- crime_journal_notes
