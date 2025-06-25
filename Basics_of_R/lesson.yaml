@@ -5,13 +5,7 @@
   Type: Standard
   Organization: UGent
   Version: 2.5
-
-- Class: text
-  Output: |
-    Welcome to the R basic lesson! 
-    You’ll work with synthetic criminology datasets to practice basics 
-    of R.
-
+  
 - Class: cmd_question
   Output: Q2 What are the column names of df_crime_stats_ghent?
   CorrectAnswer: colnames(df_crime_stats_ghent)
@@ -205,4 +199,4 @@
     ❌ Use class(FALSE).
 
 - Class: text
-  Output: You have sucessfully completed the task!
+  Output: You have completed the T-Test & Chi-Square lesson. Well done.
