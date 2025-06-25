@@ -1,17 +1,23 @@
+# ========== 1. META BLOCK ==========
 - Class: meta
-  Course: Data Analysis - Bachelor criminolgy
-  Lesson: Basics of R
-  Author: Kural K.
+  Course: "Data Analysis - Bachelor criminolgy"
+  Lesson: "Basics of R"
+  Author: "Kural K."
   Type: Standard
-  Organization: UGent
-  Version: 2.5
+  Organization: "UGent"
+  Version: "2.5"
 
+# ========== 2. WELCOME MESSAGE (padded) ==========
 - Class: text
   Output: |
-    Welcome to the R basic lesson! 
-    You’ll work with synthetic criminology datasets to practice basics 
-    of R.
+    Welcome to the R basic lesson!
+    You’ll work with synthetic criminology datasets to practice basics of R.
+  CorrectAnswer: ""
+  AnswerTests:  ""
+  Hint:         ""
+  Feedback:     ""
 
+# ========== 3. QUESTIONS ==========
 - Class: cmd_question
   Output: Q2 What are the column names of df_crime_stats_ghent?
   CorrectAnswer: colnames(df_crime_stats_ghent)
@@ -204,5 +210,11 @@
     ✔️ Well done!
     ❌ Use class(FALSE).
 
+# ========== 4. COMPLETION MESSAGE (padded) ==========
 - Class: text
-  Output: You have sucessfully completed the task!
+  Output: |
+    You have successfully completed the Basics of R lesson. Well done.
+  CorrectAnswer: ""
+  AnswerTests:  ""
+  Hint:         ""
+  Feedback:     ""
