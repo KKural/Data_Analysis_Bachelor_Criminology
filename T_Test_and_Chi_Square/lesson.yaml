@@ -7,62 +7,64 @@
   Version: 2.5
 
 - Class: text
-  Output: "Welcome to the **T-Test and Chi-Square** lesson! You’ll work with synthetic criminology datasets to practice t-tests and chi-square tests in R."
+  Output: Welcome to the T-Test and Chi-Square lesson! 
+    You’ll work with synthetic criminology datasets to practice t-tests 
+    and chi-square tests in R.
 
 - Class: cmd_question
-  Output: "**Q2** : What are the column names of `crime_stats_ghent`?"
+  Output: Q2: What are the column names of `crime_stats_ghent`?
   CorrectAnswer: colnames(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
   Hint: Use `colnames()` on the data frame you just loaded.
 
 - Class: cmd_question
-  Output: "**Q3** : What is the structure of `crime_stats_ghent`?"
+  Output: Q3: What is the structure of `crime_stats_ghent`?
   CorrectAnswer: str(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "str(crime_stats_ghent)")
   Hint: Use `str()` to see structure.
 
 - Class: cmd_question
-  Output: "**Q4** : How many rows are in `crime_stats_ghent`? (Use a function, not a hard-coded number.)"
+  Output: Q4: How many rows are in `crime_stats_ghent`? (Use a function, not a hard-coded number.)
   CorrectAnswer: nrow(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "nrow(crime_stats_ghent)")
   Hint: Try `nrow()` on the data frame.
 
 - Class: cmd_question
-  Output: "**Q5** : What are the dimensions of `crime_stats_ghent`?"
+  Output: Q5: What are the dimensions of `crime_stats_ghent`?
   CorrectAnswer: dim(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "dim(crime_stats_ghent)")
   Hint: Use `dim()` to get both rows and columns.
 
 - Class: cmd_question
-  Output: "**Q6** : Perform a t-test comparing `feel_safe_day` by `gender` in `fear_of_crime_survey`."
+  Output: Q6: Perform a t-test comparing `feel_safe_day` by `gender` in `fear_of_crime_survey`.
   CorrectAnswer: t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)
   AnswerTests: omnitest(correctExpr = "t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)")
   Hint: Use the formula interface inside `t.test()`.
 
 - Class: cmd_question
-  Output: "**Q7** : What is the p-value of the t-test you just performed? (Assign the t-test to `ttest_result` and extract the p-value.)"
+  Output: Q7: What is the p-value of the t-test you just performed? (Assign the t-test to `ttest_result` and extract the p-value.)
   CorrectAnswer: ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value
   AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value")
   Hint: Assign the t-test to `ttest_result` and use `$p.value`.
 
 - Class: cmd_question
-  Output: "**Q8** : Create a contingency table of `district` × `crime_type` in `crime_stats_ghent` and perform a chi-square test."
+  Output: Q8: Create a contingency table of `district` × `crime_type` in `crime_stats_ghent` and perform a chi-square test.
   CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
   AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
   Hint: Wrap `table()` inside `chisq.test()`.
 
 - Class: cmd_question
-  Output: "**Q9** : What is the p-value of the chi-square test you just performed? (Assign the test to `chisq_result` and extract the p-value.)"
+  Output: Q9: What is the p-value of the chi-square test you just performed? (Assign the test to `chisq_result` and extract the p-value.)
   CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value
   AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value")
   Hint: Assign the chi-square test to `chisq_result` and use `$p.value`.
 
 - Class: mult_question
-  Output: "**Q10** : Which R function carries out a chi-square test?"
+  Output: Q10: Which R function carries out a chi-square test?
   AnswerChoices: chisq.test();t.test();cor();mean()
   CorrectAnswer: chisq.test()
   AnswerTests: omnitest(correctVal = "chisq.test()")
   Hint: It starts with chisq.
 
 - Class: text
-  Output: "You have completed the T-Test & Chi-Square lesson. Well done."
+  Output: You have completed the T-Test & Chi-Square lesson. Well done.
