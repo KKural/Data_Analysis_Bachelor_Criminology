@@ -7,14 +7,11 @@
   Version: 2.5
 
 - Class: text
-  Output: Welcome to the Basics of R lesson!
+  Output: |
+    Welcome to the Basics of R lesson!
     You’ll work with synthetic criminology datasets to practice R basics, 
     data types, and simple data analysis in R.
 
-- Class: text
-  Output: |
-    Today, I'll be teaching you the basics of data analysis. It probably makes sense to start by defining the word DATA.
-    
 - Class: cmd_question
   Output: Q2: What are the column names of `df_crime_stats_ghent`?
   CorrectAnswer: colnames(df_crime_stats_ghent)
