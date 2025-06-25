@@ -10,7 +10,7 @@
 # ========== 2. WELCOME MESSAGE (padded) ==========
 - Class: text
   Output: |
-    In this lesson, you will work with a **pre-loaded synthetic** dataset, `crime_stats_ghent`.
+    In this lesson, you will work with a pre-loaded synthetic dataset, crime_stats_ghent.
     This simulated data mimics real criminology statistics so you can safely explore
     and practise basic R inspection functions.
     You’ll learn to load packages, view the first rows, inspect structure,
