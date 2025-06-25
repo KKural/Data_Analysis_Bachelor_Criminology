@@ -6,6 +6,12 @@
   Organization: UGent
   Version: 2.5
 
+- Class: text
+  Output: Now that you have learned the basics techniques and statistical calculations
+    used to describe a data set, the next step is figuring out how to effectively
+    illustrate and visualize your data.
+
+
 - Class: cmd_question
   Output: Q2 What are the column names of df_crime_stats_ghent?
   CorrectAnswer: colnames(df_crime_stats_ghent)
