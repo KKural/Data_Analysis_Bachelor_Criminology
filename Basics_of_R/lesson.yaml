@@ -18,10 +18,10 @@
 
 # ========== 3. QUESTIONS ==========
 - Class: cmd_question
-  Output: Q1  Let's get started! Please open the dplyr package so we can use its tools.
+  Output: Q1  In R, packages are collections of tools for different tasks. First, you install a package (just once), and then you can use it by calling it with the library function. How can you call the dplyr package using library?
   CorrectAnswer: library(dplyr)
   AnswerTests: omnitest(correctExpr = "library(dplyr)")
-  Hint: "Type: library(dplyr) and press Enter."
+  Hint: "Type library(dplyr) and press Enter."
 
 - Class: cmd_question
   Output: Q2  Can you show me the first few rows of the crime_stats_ghent data? This helps us see what the data looks like.
