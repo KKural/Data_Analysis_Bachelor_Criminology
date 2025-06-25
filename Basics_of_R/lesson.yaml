@@ -5,7 +5,7 @@
   Type: Standard
   Organization: UGent
   Version: 2.5
-  
+
 - Class: cmd_question
   Output: Q2 What are the column names of df_crime_stats_ghent?
   CorrectAnswer: colnames(df_crime_stats_ghent)
@@ -197,6 +197,3 @@
   Feedback: |
     ✔️ Well done!
     ❌ Use class(FALSE).
-
-- Class: text
-  Output: You have completed the T-Test & Chi-Square lesson. Well done.
