@@ -8,9 +8,8 @@
 
 - Class: text
   Output: |
-    Welcome to the R basic lesson! 
-    You’ll work with synthetic criminology datasets to practice basics 
-    of R.
+    Welcome to the R basic lesson!  
+    You’ll work with synthetic criminology datasets to practice the basics of R.
 
 - Class: cmd_question
   Output: Q2 What are the column names of df_crime_stats_ghent?
@@ -205,4 +204,5 @@
     ❌ Use class(FALSE).
 
 - Class: text
-  Output: You have successfully completed the Basics of R lesson. Well done.
+  Output: |
+    🎉 You have successfully completed the Basics of R lesson. Well done!
