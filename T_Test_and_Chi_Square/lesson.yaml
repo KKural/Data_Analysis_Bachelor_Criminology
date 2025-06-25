@@ -1,134 +1,67 @@
-# ========== 1. META BLOCK ==========
 - Class: meta
-  Course: "Data Analysis - Bachelor criminolgy"
-  Lesson: "T Test and Chi_Square"
-  Author: "Kural K."
+  Course: Data Analysis - Bachelor criminolgy
+  Lesson: T Test and Chi_Square
+  Author: Kural K.
   Type: Standard
-  Organization: "UGent"
-  Version: "2.5"
+  Organization: UGent
+  Version: 2.5
 
-# ========== 2. WELCOME MESSAGE (padded) ==========
 - Class: text
   Output: |
-    Welcome to the T-Test and Chi-Square lesson!
-    You’ll work with synthetic criminology datasets to practice t-tests
+    Welcome to the T-Test and Chi-Square lesson! 
+    You’ll work with synthetic criminology datasets to practice t-tests 
     and chi-square tests in R.
-  CorrectAnswer: ""
-  AnswerTests:  ""
-  Hint:         ""
-  Feedback:     ""
 
-# ========== 3. QUESTIONS ==========
 - Class: cmd_question
-  Output: Q1  Perform a t-test comparing `feel_safe_day` by `gender` in `fear_of_crime_survey`.
+  Output: Q1 Perform a t-test comparing feel_safe_day by gender in fear_of_crime_survey.
   CorrectAnswer: t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)
   AnswerTests: omnitest(correctExpr = "t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)")
   Hint: |
-    Use the formula interface inside `t.test()`.
+    Use the formula interface inside t.test().
   Feedback: |
-    ✔️ Correct! You performed a t-test comparing `feel_safe_day` by `gender`.
-    ❌ Try `t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)`.
+    ✔️ Correct! You performed a t-test comparing feel_safe_day by gender.
+    ❌ Try t.test(feel_safe_day ~ gender, data = fear_of_crime_survey).
 
 - Class: cmd_question
-  Output: Q2  What is the p-value of the t-test you just performed?  
-          (Assign the t-test to `ttest_result` and extract `p.value`.)
+  Output: Q2 What is the p-value of the t-test you just performed? (Assign the t-test to ttest_result and extract the p-value.)
   CorrectAnswer: ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value
   AnswerTests: omnitest(correctExpr = "ttest_result <- t.test(feel_safe_day ~ gender, data = fear_of_crime_survey); ttest_result$p.value")
   Hint: |
-    Assign to `ttest_result`, then use `ttest_result$p.value`.
+    Assign the t-test to ttest_result and use $p.value.
   Feedback: |
     ✔️ Well done! You extracted the p-value from the t-test result.
-    ❌ Assign to `ttest_result` and use `ttest_result$p.value`.
+    ❌ Assign the t-test to ttest_result and use ttest_result$p.value.
 
 - Class: cmd_question
-  Output: Q3  Create a contingency table of `district × crime_type` in `crime_stats_ghent` and perform a chi-square test.
+  Output: Q3 Create a contingency table of district × crime_type in crime_stats_ghent and perform a chi-square test.
   CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
   AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
   Hint: |
-    Wrap `table()` inside `chisq.test()`.
+    Wrap table() inside chisq.test().
   Feedback: |
-    ✔️ Correct! You ran a chi-square test on the contingency table.
-    ❌ Use `chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))`.
+    ✔️ Correct! You performed a chi-square test on the contingency table.
+    ❌ Use chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)).
 
 - Class: cmd_question
-  Output: Q4  What is the p-value of the chi-square test you just performed?  
-          (Assign the test to `chisq_result` and extract `p.value`.)
+  Output: Q4 What is the p-value of the chi-square test you just performed? (Assign the test to chisq_result and extract the p-value.)
   CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value
   AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value")
   Hint: |
-    Assign to `chisq_result`, then use `chisq_result$p.value`.
+    Assign the chi-square test to chisq_result and use $p.value.
   Feedback: |
-    ✔️ Good! You extracted the p-value from the chi-square result.
-    ❌ Assign to `chisq_result` and use `chisq_result$p.value`.
+    ✔️ Good! You extracted the p-value from the chi-square test result.
+    ❌ Assign the chi-square test to chisq_result and use chisq_result$p.value.
 
 - Class: mult_question
-  Output: Q5  Which R function carries out a chi-square test?
+  Output: Q5 Which R function carries out a chi-square test?
   AnswerChoices: chisq.test();t.test();cor();mean()
   CorrectAnswer: chisq.test()
   AnswerTests: omnitest(correctVal = "chisq.test()")
   Hint: |
-    It starts with “chisq”.
-  CorrectMsg: |
-    ✔️ Correct! The function is `chisq.test()`.
-  IncorrectMsg: |
-    ❌ That’s not it—the correct answer is `chisq.test()`.
-
-- Class: cmd_question
-  Output: Q6  Load the `flextable` package.
-  CorrectAnswer: library(flextable)
-  AnswerTests: omnitest(correctExpr = "library(flextable)")
-  Hint: |
-    Use `library(flextable)` to load the package.
+    It starts with chisq.
   Feedback: |
-    ✔️ Correct! `flextable` is now loaded.
-    ❌ Try `library(flextable)`.
+    ✔️ Correct! The function is chisq.test().
+    ❌ The correct answer is chisq.test().
 
-- Class: cmd_question
-  Output: Q7  Create a flextable from the first 6 rows of `crime_stats_ghent`.
-  CorrectAnswer: flextable::flextable(head(crime_stats_ghent))
-  AnswerTests: omnitest(correctExpr = "flextable::flextable(head(crime_stats_ghent))")
-  Hint: |
-    Use `flextable(head(crime_stats_ghent))`.
-  Feedback: |
-    ✔️ Well done! You created a flextable.
-    ❌ Try `flextable(head(crime_stats_ghent))`.
-
-- Class: cmd_question
-  Output: Q8  Format the flextable to APA style (add a simple theme).
-  CorrectAnswer: flextable::flextable(head(crime_stats_ghent)) %>% flextable::theme_vanilla()
-  AnswerTests: omnitest(correctExpr = "flextable::flextable(head(crime_stats_ghent)) %>% flextable::theme_vanilla()")
-  Hint: |
-    Chain `%>% flextable::theme_vanilla()` after creating the table.
-  Feedback: |
-    ✔️ Great! `theme_vanilla()` applies a clean APA-like style.
-    ❌ Try adding `%>% flextable::theme_vanilla()`.
-
-- Class: cmd_question
-  Output: Q9  Save the flextable as a Word document called `"table.docx"`.
-  CorrectAnswer: flextable::save_as_docx(flextable::flextable(head(crime_stats_ghent)), path = "table.docx")
-  AnswerTests: omnitest(correctExpr = "flextable::save_as_docx(flextable::flextable(head(crime_stats_ghent)), path = 'table.docx')")
-  Hint: |
-    Use `save_as_docx()` from `flextable`.
-  Feedback: |
-    ✔️ Excellent! You saved the table as `"table.docx"`.
-    ❌ Use `flextable::save_as_docx(...)` with the flextable and path.
-
-- Class: cmd_question
-  Output: Q10  Is the difference in `feel_safe_day` by `gender` significant at α = 0.05? (Use `ttest_result` from Q2.)
-  CorrectAnswer: ttest_result$p.value < 0.05
-  AnswerTests: omnitest(correctExpr = "ttest_result$p.value < 0.05")
-  Hint: |
-    Check if the stored p-value is below 0.05.
-  Feedback: |
-    ✔️ Correct! If `TRUE`, the result is significant at α = 0.05.
-    ❌ Try `ttest_result$p.value < 0.05`.
-
-# ========== 4. COMPLETION MESSAGE (padded) ==========
 - Class: text
-  Output: |
-    You have completed the T-Test & Chi-Square lesson.  
-    Well done!
-  CorrectAnswer: ""
-  AnswerTests:  ""
-  Hint:         ""
-  Feedback:     ""
+  Output: You have completed the T-Test & Chi-Square lesson. Well done.
