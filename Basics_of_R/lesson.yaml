@@ -12,6 +12,7 @@
     You’ll work with synthetic criminology datasets to practice R basics, 
     data types, and simple data analysis in R.
 
+
 - Class: cmd_question
   Output: Q2: What are the column names of `df_crime_stats_ghent`?
   CorrectAnswer: colnames(df_crime_stats_ghent)
