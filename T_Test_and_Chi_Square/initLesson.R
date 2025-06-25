@@ -7,7 +7,6 @@ data("crime_stats_ghent", package = "crimsyndata")
 data("neighborhood_index", package = "crimsyndata")
 data("fear_of_crime_survey", package = "crimsyndata")
 data("police_effort_index", package = "crimsyndata")
-data("crime_journal_notes", package = "crimsyndata")
 
 crime_stats_ghent <- crime_stats_ghent
 neighborhood_index <- neighborhood_index
