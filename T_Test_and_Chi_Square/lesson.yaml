@@ -6,11 +6,6 @@
   Organization: UGent
   Version: 2.5
 
-- Class: text
-  Output: |
-    Welcome to the **T-Test and Chi-Square** lesson!
-    You’ll work with synthetic criminology datasets to practice t-tests and chi-square tests in R.
-
 - Class: cmd_question
   Output: "**Q2** : What are the column names of `crime_stats_ghent`?"
   CorrectAnswer: colnames(crime_stats_ghent)
