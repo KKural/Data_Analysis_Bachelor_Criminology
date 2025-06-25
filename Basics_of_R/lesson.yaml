@@ -13,7 +13,7 @@
     of R.
 
 - Class: cmd_question
-  Output: Q1 What are the column names of df_crime_stats_ghent?
+  Output: Q2 What are the column names of df_crime_stats_ghent?
   CorrectAnswer: colnames(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(df_crime_stats_ghent)")
   Hint: |
@@ -23,7 +23,7 @@
     ❌ Try using colnames(df_crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
-  Output: Q2 What is the structure of df_crime_stats_ghent?
+  Output: Q3 What is the structure of df_crime_stats_ghent?
   CorrectAnswer: str(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "str(df_crime_stats_ghent)")
   Hint: |
@@ -33,7 +33,7 @@
     ❌ Use str(df_crime_stats_ghent) to see the structure of the data frame.
 
 - Class: cmd_question
-  Output: Q3 How many rows are in df_crime_stats_ghent? (Use a function, not a hard-coded number.)
+  Output: Q4 How many rows are in df_crime_stats_ghent? (Use a function, not a hard-coded number.)
   CorrectAnswer: nrow(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "nrow(df_crime_stats_ghent)")
   Hint: |
@@ -43,7 +43,7 @@
     ❌ Use nrow(df_crime_stats_ghent) to get the number of rows.
 
 - Class: cmd_question
-  Output: Q4 What are the dimensions of df_crime_stats_ghent?
+  Output: Q5 What are the dimensions of df_crime_stats_ghent?
   CorrectAnswer: dim(df_crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "dim(df_crime_stats_ghent)")
   Hint: |
@@ -53,7 +53,7 @@
     ❌ Use dim(df_crime_stats_ghent) to get the dimensions.
 
 - Class: cmd_question
-  Output: Q5 What are the column names of crime_stats_ghent?
+  Output: Q6 What are the column names of crime_stats_ghent?
   CorrectAnswer: colnames(crime_stats_ghent)
   AnswerTests: omnitest(correctExpr = "colnames(crime_stats_ghent)")
   Hint: |
@@ -63,7 +63,7 @@
     ❌ Use colnames(crime_stats_ghent) to see the column names.
 
 - Class: cmd_question
-  Output: Q6 How many rows are in neighborhood_index? (Use a function, not a hard-coded number.)
+  Output: Q7 How many rows are in neighborhood_index? (Use a function, not a hard-coded number.)
   CorrectAnswer: nrow(neighborhood_index)
   AnswerTests: omnitest(correctExpr = "nrow(neighborhood_index)")
   Hint: |
@@ -73,7 +73,7 @@
     ❌ Use nrow(neighborhood_index) to get the number of rows.
 
 - Class: mult_question
-  Output: Q7 The variable clearance_rate in police_effort_index is measured on which scale?
+  Output: Q8 The variable clearance_rate in police_effort_index is measured on which scale?
   AnswerChoices: Nominal;Ordinal;Ratio
   CorrectAnswer: Ratio
   AnswerTests: omnitest(correctVal = "Ratio")
@@ -84,7 +84,7 @@
     ❌ Remember, ratio variables have a true zero and allow for meaningful comparisons.
 
 - Class: cmd_question
-  Output: Q8 Extract the district column from crime_stats_ghent.
+  Output: Q9 Extract the district column from crime_stats_ghent.
   CorrectAnswer: crime_stats_ghent$district
   AnswerTests: omnitest(correctExpr = "crime_stats_ghent$district")
   Hint: |
@@ -94,7 +94,7 @@
     ❌ Use crime_stats_ghent$district.
 
 - Class: cmd_question
-  Output: Q9 Create low_safety as all rows in fear_of_crime_survey where feel_safe_night < 3. Print the first 6 rows.
+  Output: Q10 Create low_safety as all rows in fear_of_crime_survey where feel_safe_night < 3. Print the first 6 rows.
   CorrectAnswer: low_safety <- fear_of_crime_survey %>% filter(feel_safe_night < 3); head(low_safety)
   AnswerTests: is.data.frame(last_value) && nrow(last_value) > 0
   Hint: |
@@ -104,7 +104,7 @@
     ❌ Did you filter and assign correctly, and print the first 6 rows?
 
 - Class: mult_question
-  Output: Q10 The variable poverty_rate in neighborhood_index is measured on which scale?
+  Output: Q11 The variable poverty_rate in neighborhood_index is measured on which scale?
   AnswerChoices: Nominal;Ordinal;Ratio
   CorrectAnswer: Ratio
   AnswerTests: omnitest(correctVal = "Ratio")
@@ -115,7 +115,7 @@
     ❌ poverty_rate is a ratio variable.
 
 - Class: cmd_question
-  Output: Q11 What is the mean of violent_crimes in crime_stats_ghent?
+  Output: Q12 What is the mean of violent_crimes in crime_stats_ghent?
   CorrectAnswer: mean(crime_stats_ghent$violent_crimes)
   AnswerTests: omnitest(correctExpr = "mean(crime_stats_ghent$violent_crimes)")
   Hint: |
@@ -125,7 +125,7 @@
     ❌ Use mean(crime_stats_ghent$violent_crimes).
 
 - Class: cmd_question
-  Output: Q12 Show the first 6 rows of crime_journal_notes.
+  Output: Q13 Show the first 6 rows of crime_journal_notes.
   CorrectAnswer: head(crime_journal_notes)
   AnswerTests: omnitest(correctExpr = "head(crime_journal_notes)")
   Hint: |
@@ -135,7 +135,7 @@
     ❌ Use head(crime_journal_notes).
 
 - Class: cmd_question
-  Output: Q13 What is your current working directory?
+  Output: Q14 What is your current working directory?
   CorrectAnswer: getwd()
   AnswerTests: omnitest(correctExpr = "getwd()")
   Hint: |
@@ -145,7 +145,7 @@
     ❌ Use getwd().
 
 - Class: cmd_question
-  Output: Q14 What is 5 + 7?
+  Output: Q15 What is 5 + 7?
   CorrectAnswer: 12
   AnswerTests: omnitest(correctVal = 12)
   Hint: |
@@ -155,7 +155,7 @@
     ❌ Try again.
 
 - Class: cmd_question
-  Output: Q15 Assign the value 20 to a variable called y.
+  Output: Q16 Assign the value 20 to a variable called y.
   CorrectAnswer: y <- 20
   AnswerTests: omnitest(correctExpr = "y <- 20")
   Hint: |
@@ -165,7 +165,7 @@
     ❌ Use y <- 20.
 
 - Class: cmd_question
-  Output: Q16 Create a vector nums with the numbers 4, 5, 6.
+  Output: Q17 Create a vector nums with the numbers 4, 5, 6.
   CorrectAnswer: nums <- c(4, 5, 6)
   AnswerTests: omnitest(correctExpr = "nums <- c(4, 5, 6)")
   Hint: |
@@ -175,7 +175,7 @@
     ❌ Use nums <- c(4, 5, 6).
 
 - Class: cmd_question
-  Output: Q17 What is the class of the value 2.71?
+  Output: Q18 What is the class of the value 2.71?
   CorrectAnswer: class(2.71)
   AnswerTests: omnitest(correctExpr = "class(2.71)")
   Hint: |
@@ -185,7 +185,7 @@
     ❌ Use class(2.71).
 
 - Class: cmd_question
-  Output: Q18 What is the class of the value 'swirl'?
+  Output: Q19 What is the class of the value 'swirl'?
   CorrectAnswer: class('swirl')
   AnswerTests: omnitest(correctExpr = "class('swirl')")
   Hint: |
@@ -195,7 +195,7 @@
     ❌ Use class('swirl').
 
 - Class: cmd_question
-  Output: Q19 What is the class of the value FALSE?
+  Output: Q20 What is the class of the value FALSE?
   CorrectAnswer: class(FALSE)
   AnswerTests: omnitest(correctExpr = "class(FALSE)")
   Hint: |
