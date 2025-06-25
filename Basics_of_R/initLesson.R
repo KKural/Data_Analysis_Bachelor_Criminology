@@ -1,5 +1,4 @@
 # Load the synthetic criminology dataset package
-library(dplyr) # Only load if needed for lesson code
 library(crimsyndata)
 
 # Load datasets from the package into the lesson environment
