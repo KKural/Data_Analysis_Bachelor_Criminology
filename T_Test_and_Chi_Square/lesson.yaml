@@ -1,6 +1,6 @@
 - Class: meta
   Course: Data Analysis - Bachelor criminolgy
-  Lesson: T_Test_and_Chi_Square
+  Lesson: T Test and Chi_Square
   Author: Kural K.
   Type: Standard
   Organization: UGent
@@ -92,5 +92,5 @@
     ❌ Recall that chi-square starts with *chisq*.
 
 - Class: text
-  Output: You have completed the T-Test & Chi-Square lesson. Well done!
+  Output: You have completed the T-Test & Chi-Square lesson. Well done.
 
