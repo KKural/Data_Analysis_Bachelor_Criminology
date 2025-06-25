@@ -67,7 +67,7 @@
   Hint: Wrap `table()` inside `chisq.test()`.
   Feedback: |
     ✔️ Chi-square test complete! You performed the test correctly.
-    ❌ Make sure you pass a *table* to `chisq.test()`.
+    ❌ Make sure you pass a table to `chisq.test()`.
 
 - Class: cmd_question
   Output: "**Q9** : What is the p-value of the chi-square test you just performed? (Assign the test to `chisq_result` and extract the p-value.)"
@@ -79,11 +79,9 @@
     ❌ Make sure you assign and extract the p-value.
 
 - Class: mult_question
-  Output: "**Q10** : Which R function carries out a **chi-square** test?"
+  Output: "**Q10** : Which R function carries out a chi-square test?"
   AnswerChoices: chisq.test();t.test();cor();mean()
   CorrectAnswer: chisq.test()
   AnswerTests: omnitest(correctVal = "chisq.test()")
-  Hint: It starts with *chisq*.
-  Feedback: |
-    ✔️ Correct. The function is `chisq.test()`.
-    ❌ Recall that chi-square starts with *chisq*.
+  Hint: It starts with chisq.
+  Feedback: "✔️ Well done! ❌ Recall that chi-square starts with chisq."
