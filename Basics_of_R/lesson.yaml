@@ -5,7 +5,7 @@
   Type: Standard
   Organization: UGent
   Version: 2.5
-  
+
 - Class: text
   Output: |
     Welcome to the Basics of R lesson!
