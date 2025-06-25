@@ -10,4 +10,4 @@ data("police_effort_index", package = "crimsyndata")
 data("crime_journal_notes", package = "crimsyndata")
 
 # If you want a local copy for manipulation:
-crime_stats_ghent <- crime_stats_ghent
+df_crime_stats_ghent <- crime_stats_ghent
