@@ -1,7 +1,7 @@
 # ========== 1. META BLOCK ==========
 - Class: meta
   Course: "Data Analysis - Bachelor Criminology"
-  Lesson: "Data Inspection with crime_stats_ghent"
+  Lesson: "Basics of R"
   Author: "Kural K."
   Type: Standard
   Organization: "UGent"
