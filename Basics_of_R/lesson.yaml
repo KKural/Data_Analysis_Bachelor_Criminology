@@ -6,6 +6,11 @@
   Organization: UGent
   Version: 2.5
 
+- Class: text
+  Output: |
+    Welcome to the Basics of R lesson!
+    In this lesson, you'll learn essential R commands and data handling skills for criminology data analysis.
+
 - Class: cmd_question
   Output: Q2 What are the column names of df_crime_stats_ghent?
   CorrectAnswer: colnames(df_crime_stats_ghent)
@@ -197,3 +202,9 @@
   Feedback: |
     ✔️ Well done!
     ❌ Use class(FALSE).
+
+- Class: text
+  Output: |
+    Now that you have learned the basics techniques and statistical calculations
+    used to describe a data set, the next step is figuring out how to effectively
+    illustrate and visualize your data.
