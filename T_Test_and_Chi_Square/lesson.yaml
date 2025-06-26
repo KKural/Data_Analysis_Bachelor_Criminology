@@ -30,7 +30,7 @@
 - Class: cmd_question
   Output: Q3 Extract the p-value from the t-test result and save it as p_value.
   CorrectAnswer: p_value <- t.test(feel_safe_day ~ gender, data = filtered_survey)$p.value
-  AnswerTests: any_of_exprs('p_value <- t.test(fear_level ~ gender, data = filtered_survey)$p.value', 'ttest_result <- t.test(fear_level ~ gender, data = filtered_survey); p_value <- ttest_result$p.value')
+  AnswerTests: any_of_exprs('p_value <- t.test(feel_safe_day ~ gender, data = filtered_survey)$p.value', 'ttest_result <- t.test(feel_safe_day ~ gender, data = filtered_survey); p_value <- ttest_result$p.value')
   Hint: |
     "You can either run the t-test and extract the p-value in one line with $p.value, or store the test result in a variable first and then extract the p-value."
     
