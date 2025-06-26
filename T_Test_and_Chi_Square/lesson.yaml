@@ -15,11 +15,11 @@
 
 # ========== 3. QUESTIONS ==========
 - Class: cmd_question
-  Output: Q1  Perform a t-test comparing `feel_safe_day` by `gender` in `fear_of_crime_survey`.
-  CorrectAnswer: t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)
-  AnswerTests: omnitest(correctExpr = "t.test(feel_safe_day ~ gender, data = fear_of_crime_survey)")
+  Output: Q1  Perform a t-test comparing `feel_safe_day` by `gender` (using only "Male" and "Female" categories) in `fear_of_crime_survey`.
+  CorrectAnswer: t.test(feel_safe_day ~ gender, data = subset(fear_of_crime_survey, gender %in% c("Female", "Male")))
+  AnswerTests: any_of_exprs("t.test(feel_safe_day ~ gender, data = subset(fear_of_crime_survey, gender %in% c('Female', 'Male')))", "t.test(feel_safe_day ~ gender, data = subset(fear_of_crime_survey, gender %in% c('Male', 'Female')))", "t.test(feel_safe_day ~ factor(gender), data = subset(fear_of_crime_survey, gender %in% c('Female', 'Male')))", "t.test(feel_safe_day ~ factor(gender), data = subset(fear_of_crime_survey, gender %in% c('Male', 'Female')))")
   Hint: |
-    Use the formula interface: `t.test(y ~ x, data = your_data)`.
+    First filter the data to include only "Male" and "Female" categories using subset(), then use the formula interface: `t.test(y ~ x, data = your_filtered_data)`.
 
 - Class: cmd_question
   Output: Q2  Assign the t-test to `ttest_result` and extract its p-value.
