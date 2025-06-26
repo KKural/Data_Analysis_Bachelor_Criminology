@@ -22,9 +22,9 @@
     Use subsetting with square brackets and the %in% operator or use subset() or filter() to keep only rows where gender is either 'Male' or 'Female'. Don't forget to assign the result to filtered_survey.
 
 - Class: cmd_question
-  Output: Q2 Perform a t-test to compare fear_level between Males and Females using the filtered_survey dataset.
+  Output: Q2 Perform a t-test to compare feel_safe_day between Males and Females using the filtered_survey dataset.
   CorrectAnswer: t.test(fear_level ~ gender, data = filtered_survey)
-  AnswerTests: any_of_exprs('t.test(fear_level ~ gender, data = filtered_survey)', 't.test(filtered_survey$fear_level ~ filtered_survey$gender)')
+  AnswerTests: any_of_exprs('t.test(feel_safe_day ~ gender, data = filtered_survey)', 't.test(filtered_survey$fear_level ~ filtered_survey$gender)')
   Hint: "Use the t.test() function with a formula notation: fear_level ~ gender, and specify data = filtered_survey"
 
 - Class: cmd_question
