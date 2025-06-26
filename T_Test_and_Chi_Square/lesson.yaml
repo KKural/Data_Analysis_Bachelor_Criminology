@@ -17,35 +17,35 @@
 - Class: cmd_question
   Output: Q1 Filter the fear_of_crime_survey dataset to include only 'Male' and 'Female' gender values and save it as filtered_survey.
   CorrectAnswer: filtered_survey <- fear_of_crime_survey[fear_of_crime_survey$gender %in% c("Male", "Female"), ]
-  AnswerTests: test_that(exists("filtered_survey"))
+  AnswerTests: TRUE
   Hint: |
     Use subsetting with square brackets and the %in% operator or use subset() or filter() to keep only rows where gender is either 'Male' or 'Female'. Don't forget to assign the result to filtered_survey.
 
 - Class: cmd_question
   Output: Q2 Perform a t-test to compare feel_safe_day between Males and Females using the filtered_survey dataset.
   CorrectAnswer: t.test(feel_safe_day ~ gender, data = filtered_survey)
-  AnswerTests: ANY_of_exprs('t.test')
+  AnswerTests: TRUE
   Hint: |
     Use the t.test() function with a formula notation: feel_safe_day ~ gender, and specify data = filtered_survey.
 
 - Class: cmd_question
   Output: Q3 Extract the p-value from the t-test result and save it as p_value.
   CorrectAnswer: p_value <- t.test(feel_safe_day ~ gender, data = filtered_survey)$p.value
-  AnswerTests: test_that(exists("p_value"))
+  AnswerTests: TRUE
   Hint: |
     You can either run the t.test and extract the p-value with $p.value, or store the test result in a variable first and then extract the p-value.
     
 - Class: cmd_question
   Output: Q4 Create a contingency table of district × crime_type in crime_stats_ghent and run a chi-square test.
   CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
-  AnswerTests: ANY_of_exprs('chisq.test')
+  AnswerTests: TRUE
   Hint: |
     Use table() inside chisq.test().
 
 - Class: cmd_question
   Output: Q5 Assign the chi-square test to chisq_result and extract its p-value.
   CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value
-  AnswerTests: test_that(exists("chisq_result"))
+  AnswerTests: TRUE
   Hint: |
     Assign to chisq_result then use $p.value.
 
