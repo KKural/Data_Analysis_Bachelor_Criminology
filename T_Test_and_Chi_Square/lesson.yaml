@@ -23,7 +23,7 @@
 
 - Class: cmd_question
   Output: Q2 Perform a t-test to compare feel_safe_day between Males and Females using the filtered_survey dataset.
-  CorrectAnswer: t.test(fear_level ~ gender, data = filtered_survey)
+  CorrectAnswer: t.test(feel_safe_day ~ gender, data = filtered_survey)
   AnswerTests: any_of_exprs('t.test(feel_safe_day ~ gender, data = filtered_survey)', 't.test(filtered_survey$fear_level ~ filtered_survey$gender)')
   Hint: "Use the t.test() function with a formula notation: fear_level ~ gender, and specify data = filtered_survey"
 
