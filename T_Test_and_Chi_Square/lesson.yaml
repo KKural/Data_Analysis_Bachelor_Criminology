@@ -11,53 +11,45 @@
 - Class: text
   Output: |
     Welcome to the T-Test and Chi-Square lesson!  
-    In this module, you’ll perform inferential tests to compare groups and examine associations.
+    In this module, you'll perform inferential tests to compare groups and examine associations.
 
 # ========== 3. QUESTIONS ==========
 - Class: cmd_question
   Output: Q1 Filter the fear_of_crime_survey dataset to include only 'Male' and 'Female' gender values and save it as filtered_survey.
   CorrectAnswer: filtered_survey <- fear_of_crime_survey[fear_of_crime_survey$gender %in% c("Male", "Female"), ]
-  AnswerTests: any_of_exprs('filtered_survey <- fear_of_crime_survey[fear_of_crime_survey$gender %in% c("Male", "Female"), ]', 'filtered_survey <- fear_of_crime_survey[fear_of_crime_survey$gender == "Male" | fear_of_crime_survey$gender == "Female", ]', 'filtered_survey <- subset(fear_of_crime_survey, gender %in% c("Male", "Female"))', 'filtered_survey <- subset(fear_of_crime_survey, gender == "Male" | gender == "Female"))', 'filtered_survey <- filter(fear_of_crime_survey, gender %in% c("Male", "Female"))', 'filtered_survey <- filter(fear_of_crime_survey, gender == "Male" | gender == "Female"))')
+  AnswerTests: any_of_exprs('filtered_survey <- fear_of_crime_survey[fear_of_crime_survey$gender %in% c("Male", "Female"), ]', 'filtered_survey <- fear_of_crime_survey[fear_of_crime_survey$gender == "Male" | fear_of_crime_survey$gender == "Female", ]', 'filtered_survey <- subset(fear_of_crime_survey, gender %in% c("Male", "Female"))', 'filtered_survey <- subset(fear_of_crime_survey, gender == "Male" | gender == "Female")', 'filtered_survey <- filter(fear_of_crime_survey, gender %in% c("Male", "Female"))', 'filtered_survey <- filter(fear_of_crime_survey, gender == "Male" | gender == "Female")')
   Hint: |
     Use subsetting with square brackets and the %in% operator or use subset() or filter() to keep only rows where gender is either 'Male' or 'Female'. Don't forget to assign the result to filtered_survey.
 
 - Class: cmd_question
-  Output: Q1 Now perform a t-test to compare fear_level between Males and Females using the filtered_survey dataset.
+  Output: Q2 Perform a t-test to compare fear_level between Males and Females using the filtered_survey dataset.
   CorrectAnswer: t.test(fear_level ~ gender, data = filtered_survey)
   AnswerTests: any_of_exprs('t.test(fear_level ~ gender, data = filtered_survey)', 't.test(filtered_survey$fear_level ~ filtered_survey$gender)')
   Hint: "Use the t.test() function with a formula notation: fear_level ~ gender, and specify data = filtered_survey"
 
 - Class: cmd_question
-  Output: Q2.1 Extract the p-value from the t-test result and save it as p_value.
+  Output: Q3 Extract the p-value from the t-test result and save it as p_value.
   CorrectAnswer: p_value <- t.test(fear_level ~ gender, data = filtered_survey)$p.value
   AnswerTests: any_of_exprs('p_value <- t.test(fear_level ~ gender, data = filtered_survey)$p.value', 'ttest_result <- t.test(fear_level ~ gender, data = filtered_survey); p_value <- ttest_result$p.value')
   Hint: |
     "You can either run the t-test and extract the p-value in one line with $p.value, or store the test result in a variable first and then extract the p-value."
     
 - Class: cmd_question
-  Output: Q3  Create a contingency table of `district` × `crime_type` in `crime_stats_ghent` and run a chi-square test.
+  Output: Q4 Create a contingency table of `district` × `crime_type` in `crime_stats_ghent` and run a chi-square test.
   CorrectAnswer: chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))
   AnswerTests: omnitest(correctExpr = "chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type))")
   Hint: |
     Use `table()` inside `chisq.test()`.
 
 - Class: cmd_question
-  Output: Q4  Assign the chi-square test to `chisq_result` and extract its p-value.
+  Output: Q5 Assign the chi-square test to `chisq_result` and extract its p-value.
   CorrectAnswer: chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value
   AnswerTests: omnitest(correctExpr = "chisq_result <- chisq.test(table(crime_stats_ghent$district, crime_stats_ghent$crime_type)); chisq_result$p.value")
   Hint: |
     Assign to `chisq_result` then use `$p.value`.
 
-- Class: mult_question
-  Output: Q5  Which R function performs a chi-square test?
-  AnswerChoices: chisq.test(); t.test(); cor(); mean()
-  CorrectAnswer: chisq.test()
-  AnswerTests: omnitest(correctVal = "chisq.test()")
-  Hint: |
-    It starts with “chisq.”
-
 # ========== 4. COMPLETION MESSAGE ==========
 - Class: text
   Output: |
-    🎉 You’ve completed the T-Test & Chi-Square lesson!  
+    🎉 You've completed the T-Test & Chi-Square lesson!  
     You can now compare means and test associations in R.
